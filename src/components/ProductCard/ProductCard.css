@@ -1,0 +1,16 @@
+.card {
+    margin: 5px;
+}
+
+.cardImageWrapper {
+    height: 80%;
+}
+
+.cardImage {
+    object-fit: cover;
+    width: 100%;
+}
+
+.cardText {
+    text-align: left;
+}

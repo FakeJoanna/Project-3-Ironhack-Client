@@ -1,0 +1,72 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 5vh;
+    border-bottom: 1px solid lightgrey;
+}
+
+.logoDiv {
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    width: 20%;
+}
+
+.logoDiv > img {
+    height: 100%;
+    margin-right: 10%;
+}
+
+.searchBarDiv {
+    display: flex;
+    align-items: center;
+    height: 80%;
+    width: 50%;
+}
+
+.searchBarForm {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    background-color: lightgrey;
+}
+
+.searchBar {
+    width: 100%;
+    font-size: 1.1rem;
+    background-color: #D3D3D3;
+    border: 0;
+    outline: none;
+}
+
+.glass {
+    height: 20px;
+    padding: 10px;
+}
+
+.buttonsDiv {
+    display: flex;
+    justify-content: flex-start;
+    width: 30%;
+    margin-left: 20px;
+}
+
+.button {
+    background-color: white;
+    border-radius: 3px;
+    margin: 0 5px;
+    padding: 5px;
+    font-size: 0.9rem;
+}
+
+.normalColors {
+    border: 1px solid #C2634B;
+}
+
+.invertedColors {
+    border: 0;
+    background-color: #C2634B;
+    color: white;
+}

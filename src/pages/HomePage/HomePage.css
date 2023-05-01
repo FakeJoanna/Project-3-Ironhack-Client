@@ -1,0 +1,8 @@
+.firstSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    background-color: #C2634B;
+    color: white;
+}

@@ -1,0 +1,11 @@
+.formDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.addProductForm {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
