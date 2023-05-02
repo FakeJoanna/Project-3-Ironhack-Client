@@ -14,50 +14,43 @@ function AddProduct() {
         price: 0,
     })
 
-////////  ADD ALSO THE INPUT FOR THE IMAGE ///////
-    // const handleImage = (e) => setImage(e.target.value)
-    // const handleTitle = (e) => setTitle(e.target.value)
-    // const handleDescription = (e) => setDescription(e.target.value)
-    // const handlePrice = (e) => setPrice(e.target.value)
+    function handleChange(event) {
+        const { name, value } = event.target
+        setNewProduct(prevState => ({...prevState, [name]: value}))
+    }
 
-
-    // const handleSubmit = (e) => {
-        
-    //     e.preventDefault()
-
-    //     const requestBody = { image, title, description, price }
-
-    //     axios.post(`${API_URL}/api/projects`, requestBody)
-    //     .then(response => {
-            
-    //         // Reset the state
-
-    //         setImage("")
-    //         setTitle("")
-    //         setDescription("")
-    //         setPrice(0)
-
-            
-    //     })
-    //     .catch(err => console.log(err))
-    // }
-
-
-    ////// ADD THIS FORM,  FROM A BUTTON ON THE NAV BAR ( ADD A PRODUCT ) ///////
-
+    function handleSubmit(event) {
+        event.preventDefault();
+        axios.post(`${API_URL}/api/products`, newProduct)
+            .then(response => {
+                console.log("success")
+            })
+    }
 
     return (
-        <div className="formDiv">
-            <form className="addProductForm">
-                <h3>Add Product</h3>
-                <input name="image" type="file" multiple alt=""></input>
-                <input type="text" multiple alt=""></input>
-                <input type="text" multiple alt=""></input>
-                <input type="number" multiple alt=""></input>
+        <div className="baseDiv">
+            <form className="addProductForm" onSubmit={handleSubmit}>
+                <h3>Add a product</h3>
+                <div className="imageFormDiv">
+                    <p>Add up to 5 images</p>
+                    <input name="image" type="file" multiple alt="" onChange={handleChange}></input>
+                </div>
+                <div className="formDiv">
+                    <p>Title</p>
+                    <input name="title" type="text" alt="" onChange={handleChange}></input>
+                </div>
+                <div className="formDiv">
+                    <p>Description</p>
+                    <input name="description" type="text" alt="" onChange={handleChange}></input>
+                </div>
+                <div className="formDiv">
+                    <p>Price</p>
+                    <input name="price" type="number" alt="" onChange={handleChange}></input>
+                </div>
+                <button>Upload</button>
             </form>
         </div>
     )
-
 }
 
 export default AddProduct

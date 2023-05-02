@@ -1,11 +1,52 @@
-.formDiv {
+.baseDiv {
     display: flex;
     justify-content: center;
+    background-color: #C2634B;
+}
+
+hr {
+    color: lightgrey;
+    width: 99%;
+}
+
+.baseDiv h3 {
+    text-align: left;
+    color: white
+}
+
+form p {
+    margin: 15px 5px;
 }
 
 .addProductForm {
     width: 80%;
+}
+
+.imageFormDiv {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    background-color: white;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.imageFormDiv > input {
+    border: 1px dashed black;
+    margin: 5px;
+    height: 50px;
+}
+
+.formDiv {
+    display: flex;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.formDiv > p {
+    text-align: left;
+    width: 50%;
+}
+
+.formDiv > input {
+    width: 50%;
 }
