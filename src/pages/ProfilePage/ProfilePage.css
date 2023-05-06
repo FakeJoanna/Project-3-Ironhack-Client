@@ -1,0 +1,72 @@
+.profilePageDiv {
+    background-color: #C2634B;
+    height: 92vh;
+}
+
+.topDiv {
+    margin: 0 10%;
+    width: 100%;
+    display: flex;
+    text-align: left;
+    height: 40vh;
+}
+
+.profilePictureDiv {
+    flex-basis: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilePic {
+    height: 80%;
+    border-radius: 50%;
+}
+
+.informationDiv {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.infoTextDiv {
+    flex-basis: 50%;
+    background-color: #f7f7f7;
+    margin: 10px;
+    border-radius: 5px;
+    height: 80%;
+}
+
+.infoTextDiv h1 {
+    margin: 10px 5px 0;
+}
+
+.infoTextDiv p {
+    margin: 0 5px 0;
+}
+
+.divider {
+    margin: 0 10%;
+    font-size: 2rem;
+    width: 80%;
+    color: #f7f7f7;
+}
+
+.tabButtonDiv {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 10%;
+}
+
+.tabButton {
+    font-size: 1rem;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: none;
+    cursor: pointer;
+}
+
+.tabButton:hover {
+    background-color: lightgrey;
+}

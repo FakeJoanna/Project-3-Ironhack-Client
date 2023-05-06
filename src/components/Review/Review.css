@@ -1,9 +1,9 @@
-.authForm {
+.reviewForm {
   margin: 30px auto;
   width: 380px;
 }
 
-.authForm label {
+.reviewForm label {
   color: #666;
   display: inline-block;
   margin-bottom: 10px;
@@ -11,7 +11,7 @@
   width: 100%;
 }
 
-.authForm input, .authForm button {
+.reviewForm input, .reviewForm button {
   box-sizing: border-box;
   font-size: 14px;
   outline: 0;
@@ -20,12 +20,12 @@
   margin-bottom: 20px;
 }
 
-.authForm ::placeholder {
+.reviewForm ::placeholder {
   color: rgb(177, 177, 177);
   text-align: left;
 }
 
-.authForm button {
+.reviewForm button {
   background: rgb(164, 142, 255);
   border: 1px solid rgb(164, 142, 255);;
   border-radius: 4px;
@@ -40,19 +40,13 @@
   width: 100%;
 }
 
-.authForm button:hover {
+.reviewForm button:hover {
   background: #fff;
   color: #43a3e6;
   transition: 0.3s ease background;
 }
 
-.authForm h1 {
+.reviewForm h1 {
   text-align: center;
   margin: 15px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }

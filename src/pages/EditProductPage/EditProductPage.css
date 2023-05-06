@@ -10,18 +10,18 @@
     color: white
 }
 
-.addProductForm {
+.editProductForm {
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 80%;
 }
 
-.addProductForm p {
+.editProductForm p {
     margin: 15px 5px;
 }
 
-.imageFormDiv {
+.editImageFormDiv {
     flex: 3;
     display: flex;
     flex-direction: column;
@@ -30,30 +30,30 @@
     margin-bottom: 20px;
 }
 
-.imageFormDiv > input {
-    display: none;
-    flex: 1;
+/* to be deleted */
+
+.imageInput { 
     border: 1px dashed black;
-    margin: 5px;
     height: 50px;
+    width: 100%;
 }
 
-.formDiv {
+.editFormDiv {
     display: flex;
     background-color: white;
     margin-bottom: 20px;
 }
 
-.formDiv > p {
+.editFormDiv > p {
     text-align: left;
     width: 50%;
 }
 
-.formDiv > input {
+.editFormDiv > input {
     width: 50%;
 }
 
-.formDiv > textarea {
+.editFormDiv > textarea {
     width: 50%;
 }
 
@@ -78,5 +78,23 @@
 .uploadButton:hover {
     background: #fff;
     color: #43a3e6;
+    transition: 0.3s ease background;
+}
+
+.deleteProductButton {
+    background: #b74848;
+    border: 1px solid #b74848;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 16px;
+    text-decoration: none;
+    transition: 0.3s ease background;
+    width: 100%;
+}
+
+.deleteProductButton:hover {
+    background: #fff;
+    color: #b74848;
     transition: 0.3s ease background;
 }

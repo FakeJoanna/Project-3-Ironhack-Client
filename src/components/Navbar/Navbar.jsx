@@ -4,9 +4,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 
 function Navbar() {
-  // Subscribe to the AuthContext to gain access to
-  // the values from AuthContext.Provider's `value` prop
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  
+  const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
   return (
     <nav className="navbar">
@@ -20,33 +19,31 @@ function Navbar() {
           <input type="text" className="searchBar" placeholder="Search for products"></input>
         </form>
       </div>
+
       <div className="buttonsDiv">
+
         <Link to="/">
           <button className="button normalColors">Home</button>
         </Link>
 
         {isLoggedIn && (
           <>
-            <button onClick={logOutUser}>Logout</button>
+            <button className="button invertedColors" onClick={logOutUser}>Logout</button>
 
-            <Link to="/profile">
-              <button>Profile</button>
-              {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
+            <Link to="/member">
+              <button className="button normalColors">Profile</button>
             </Link>
-
-            <span>{user && user.name}</span>
           </>
         )}
 
         {!isLoggedIn && (
           <>
             <Link to="/signup">
-              {" "}
-              <button className="button invertedColors">Sign Up</button>{" "}
+              <button className="button invertedColors">Sign Up</button>
             </Link>
+            
             <Link to="/login">
-              {" "}
-              <button className="button normalColors">Login</button>{" "}
+              <button className="button normalColors">Login</button>
             </Link>
           </>
         )}
@@ -54,6 +51,7 @@ function Navbar() {
         <Link to="/new-product">
           <button className="button invertedColors">Sell a product</button>
         </Link>
+
       </div>
     </nav>
   );
