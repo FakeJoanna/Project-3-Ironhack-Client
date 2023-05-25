@@ -66,7 +66,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    padding: 10px 63px;
+    padding: 10px;
     background-color: #09aeb7;
     border: 1px solid #09aeb7;
     color: #fff;
@@ -87,8 +87,8 @@
 .deleteProductButton {
     width: 100%;
     font-family: "Open Sans",sans-serif;
-    margin: 10px;
-    padding: 10px 63px;
+    margin: 10px 0;
+    padding: 10px;
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;

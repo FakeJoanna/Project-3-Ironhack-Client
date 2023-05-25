@@ -141,8 +141,8 @@ function EditProjectPage() {
                         <input value={product.country} name="country" placeholder="ex: France" type="text" alt="" onChange={handleChange}></input>
                     </div>
                     <button type="submit" className="submitEditsButton">EDIT PRODUCT</button>
+                    <button className="deleteProductButton" onClick={handleDelete}>DELETE PRODUCT</button>
                 </form>
-                <button className="deleteProductButton" onClick={handleDelete}>DELETE PRODUCT</button>
             </div>
         </div>
     );

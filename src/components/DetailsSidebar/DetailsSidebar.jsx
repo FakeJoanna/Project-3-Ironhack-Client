@@ -58,9 +58,11 @@ function DetailsSidebar({product, ownerUser}) {
     return(
         <div className="detailsSidebarDiv">
 
-            <h3 className="sidebarPrice">€{product.price}</h3>
+            <h3 className="sidebarTitle">{product.title}</h3>
 
             <hr />
+
+            <h4 className="sidebarPrice">€{product.price}</h4>
 
             <div className="detailsDiv">
 

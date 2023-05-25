@@ -5,10 +5,16 @@
   padding: 10px;
 }
 
+.sidebarTitle {
+  text-align: left;
+  font-size: 20px;
+  word-wrap: normal;
+}
+
 .sidebarPrice {
   text-align: left;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 24px;
 }
 
 .details {
@@ -25,8 +31,9 @@
 }
 
 .sidebarDescription {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 300;
+  word-wrap: normal;
 }
 
 .creatorUserDiv {
