@@ -35,7 +35,21 @@ function EditProjectPage() {
     useEffect(() => {
         axios.get(`${API_URL}/api/products/${productId}`)
             .then((response) => {
-                setProduct(response.data)
+                const { img, title, description, price, state, brand, size, color, country, category } = response.data
+
+                setProduct({
+                    img: img || [""],
+                    title: title || "",
+                    description: description || "",
+                    price: price || 0,
+                    state: state || "",
+                    brand: brand || "",
+                    size: size || "",
+                    color: color || "",
+                    country: country || "",
+                    category: category || "",
+                })
+                
                 setImageURLs(response.data.img)
                 setImagesLoading(!imagesLoading)
             })
