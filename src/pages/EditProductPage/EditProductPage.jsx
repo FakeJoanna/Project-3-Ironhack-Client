@@ -7,7 +7,7 @@ import axios from "axios";
 import { AuthContext } from "../../context/auth.context"
 import ImageInput from "../../components/ImageInput/ImageInput";
  
-const API_URL = "http://localhost:5005";
+const API_URL =  process.env.API_URL;
 
  
 function EditProjectPage() {

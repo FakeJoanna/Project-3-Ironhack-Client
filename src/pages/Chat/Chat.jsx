@@ -10,7 +10,7 @@ import { ChatIDsContext } from "../../context/chatIDs.context"
 import ChatBox from "../../components/ChatBox/ChatBox"
 import Loading from "../../components/Loading/Loading";
 
-const API_URL = "http://localhost:5005"
+const API_URL =  process.env.API_URL
 
 function Chat() {
 

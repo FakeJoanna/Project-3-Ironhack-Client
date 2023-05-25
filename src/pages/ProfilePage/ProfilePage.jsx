@@ -11,7 +11,7 @@ import ProductsTab from "../../components/ProductsTab/ProductsTab";
 import ReviewsTab from "../../components/ReviewsTab/ReviewsTab";
 import Loading from "../../components/Loading/Loading";
 
-const API_URL = "http://localhost:5005"; 
+const API_URL =  process.env.API_URL; 
 
 function ProfilePage() {
 

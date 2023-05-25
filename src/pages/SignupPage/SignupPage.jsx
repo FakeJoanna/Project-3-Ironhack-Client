@@ -5,7 +5,7 @@ import axios from "axios"
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/auth.context"
 
-const API_URL = "http://localhost:5005"
+const API_URL =  process.env.API_URL
 
 function SignupPage() {
 

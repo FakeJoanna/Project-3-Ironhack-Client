@@ -6,7 +6,8 @@ import { AuthContext } from "../../context/auth.context"
 import { CartContext } from "../../context/cart.context"
 import Offer from "../Offer/Offer"
 import axios from "axios";
-const API_URL = "http://localhost:5005";
+
+const API_URL =  process.env.API_URL
 
 
 

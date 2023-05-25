@@ -7,7 +7,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import { ChatIDsContext } from "../../context/chatIDs.context"
  
-const API_URL = "http://localhost:5005";
+const API_URL =  process.env.API_URL
 
 
 function Offer({ productOwner }) {

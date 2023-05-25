@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import ReviewImageInput from "../../components/ReviewImageInput/ReviewImageInput.jsx";
 
-const API_URL = "http://localhost:5005";
+const API_URL =  process.env.API_URL;
 
 function Review() {
 

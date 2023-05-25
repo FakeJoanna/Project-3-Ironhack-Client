@@ -9,9 +9,10 @@ import { ChatIDsContext } from "../../context/chatIDs.context"
 
 import { io } from "socket.io-client"
 
-const API_URL = "http://localhost:5005"
+const API_URL =  process.env.API_URL
+const CHAT_URL = process.env.CHAT_URL
 
-const socket = io("http://localhost:5000", {
+const socket = io(CHAT_URL, {
     autoConnect: false //if not set to false, will connect to server every time component reloads
 })
 

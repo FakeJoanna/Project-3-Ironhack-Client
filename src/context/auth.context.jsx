@@ -6,7 +6,7 @@ import axios from "axios"
 
 const AuthContext = React.createContext()
 
-const API_URL = "http://localhost:5005"
+const API_URL =  process.env.API_URL
 
 function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)

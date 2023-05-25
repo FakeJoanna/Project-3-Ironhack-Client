@@ -8,7 +8,7 @@ import axios from "axios";
 import SearchPreview from "../SearchPreview/SearchPreview"
 import CartSideBar from "../CartSideBar/CartSideBar";
 
-const API_URL = "http://localhost:5005";     
+const API_URL =  process.env.API_URL
 
 function Navbar() {
     

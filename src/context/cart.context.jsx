@@ -4,7 +4,7 @@ import axios from "axios"
 
 const CartContext = createContext([])
 
-const API_URL = "http://localhost:5005"
+const API_URL =  process.env.API_URL
 
 function CartProviderWrapper(props) {
     const [cart, setCart] = useState([])
