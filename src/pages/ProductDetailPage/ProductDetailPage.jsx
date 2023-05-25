@@ -1,110 +1,87 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import "./ProductDetailPage.css"
+
+import { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import Offer from "../../components/Offer/Offer";
-import Review from "../../components/Review/Review";
+import { AuthContext } from "../../context/auth.context";
+
+import Carousel from "../../components/Carousel/Carousel";
+import DetailsSidebar from "../../components/DetailsSidebar/DetailsSidebar";
+import Loading from "../../components/Loading/Loading"
+import YouMightAlsoLike from "../../components/YouMightAlsoLike/YouMightAlsoLike"
+import axios from "axios";
 
 const API_URL = "http://localhost:5005";     
 
-
 function ProductDetailPage() {
 
-    const [product, setProduct] = useState(null)
-    const [review, setReview] = useState(null)
-    const [offer, setOffer] = useState(null)
-
-
+    const { user } = useContext(AuthContext)
     const { productId } = useParams(); 
 
-    const getProduct = () => {
-        axios.get(`${API_URL}/api/products/${productId}`)
-        .then((response) => {
-            const singleProduct = response.data
-            setProduct(singleProduct)
-        })
-        .catch(err => console.log(err))
-    }
-
-    const getReview = () => {
-        axios.get(`${API_URL}/api/products/${productId}/review`)
-        .then(response => {
-            const reviews = response.data
-            setReview(reviews)
-            console.log(response.data)
-        })
-        .catch(err => console.log(err))
-    }
-
-    const getOffer = () => {
-        axios.get(`${API_URL}/api/products/${productId}/offer`)
-        .then(response => {
-            const offers = response.data
-            setOffer(offers)
-            console.log(response.data)
-        })
-        .catch(err => console.log(err))
-    }
+    const [product, setProduct] = useState(null)
+    const [userInfo, setUserInfo] = useState(null) //to fetch review numbers and profile picture img
+  
 
     useEffect(() => {
-        getProduct();
-        getReview();
-        getOffer();
-    }, []);
+        axios.get(`${API_URL}/api/products/${productId}`)
+        .then((response) => {
+            setProduct(response.data)
+            setUserInfo(response.data.user[0])
+        })
+        .catch(err => console.log(err))
+        
+    }, [productId]);
+
 
     return (
-        
-        <div>
+        <div className="productDetailsDiv">
 
-            {product &&  (
+            <div className="productDetailsWrapper">
+                {product && userInfo
+                
+                ?
+
                 <>
-                {product.img.map(image => {
-                    return(
-                        <img src={image} alt="" />
-                    )
-                })}
-                    <h1>{product.title}</h1>
-                    <p>{product.description}</p>
-                    <p>{product.price}</p>
+                    <div className="productDetailsMainDiv">
+                        <Carousel images={product.img} />
+                        {user && userInfo._id === user._id
+                        
+                        ?
+
+                        <Link to={`/products/${product._id}/edit`}>
+                            <button className="editProductButton">EDIT PRODUCT</button>
+                        </Link>
+
+                        :
+
+                        <></>
+                        }
+                    </div>
+                    
+                    <DetailsSidebar product={product} ownerUser={userInfo}/>
                 </>
-            )}
 
+                :
 
-            <Link to="/products">
-                <button>Back to products</button>
-            </Link>
+                <Loading />
 
-            <Link to={`/products/${productId}/edit`}>
-                <button>Edit Product</button>
-            </Link>  
+                }
 
-            <Offer />
-
-            <Review />
-
-            {review === null ? <p>Loading reviews...</p> : review.map(reviews => {
-                return (
-                    <div key={reviews._id}>
-                    <img src={reviews.img}/>
-                        <h1>{reviews.title}</h1>
-                        <p>{reviews.message}</p>
-                    </div>
-                )
-            })}
-            {offer === null ? <p>Loading offers...</p> : offer.map(offers => {
-                return (
-                    <div key={offers._id}>
-                        <h1>{offers.price}</h1>
-                        <p>{offers.message}</p>
-                    </div>
-                )
-            })}
-
-
-
-
-
-
+            
+                
+            </div>
+            
+            
+            <div className="youMightAlsoLikeWrapper">
+                <div className="secondSectionHeader">
+                    <h1 className="youMightAlsoLikeText">You Might Also Like</h1>
+                    <Link to="/products" className='buttonSeeMore'>
+                        <button>See more</button> 
+                    </Link>
+                </div>
+                <YouMightAlsoLike />
+            </div>
         </div>
+        
     )
 }
 

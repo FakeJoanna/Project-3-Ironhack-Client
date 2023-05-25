@@ -1,77 +1,370 @@
-.navbar {
+.projectNavbar {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 8vh;
+    height: 6vh;
     border-bottom: 1px solid lightgrey;
+    background-color: white;
 }
 
 .logoDiv {
+    flex: 1 0 25%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     height: 100%;
-    width: 20%;
 }
 
-.logoDiv > img {
-    height: 100%;
-    margin-right: 10%;
+.profile-picture {
+    width: 100%;
 }
 
-.searchBarDiv {
+.logoLink {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 2vh;
+    height: 100%;
+}
+
+.logoImage {
+    height: 80%;
+}
+
+.searchDiv {
+    flex: 1 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.searchDivWrapper {
+    position: relative;
+    display: flex;
+    height: 65%;
+    width: 95%;
+}
+
+@media only screen and (min-width: 1920px) {
+    .searchDivWrapper, .logoDiv > img {
+        height: 55%;
+    }
+}
+
+.navSelection {
     display: flex;
     align-items: center;
-    height: 80%;
-    width: 50%;
+    justify-content: center;
+    width: 115px;
+    border-right: 1px solid rgb(184, 184, 184);
+    cursor: pointer;
+    background-color: rgb(236 236 236);
+}
+
+.navSelection > p {
+    margin: 0;
+    margin-right: 10px;
+    font-size: 15px;
+    color: #757575;
+}
+
+.navSelectionArrow {
+    height: 50%;
+}
+
+.navOptions {
+    position: absolute;
+    z-index: -1;
+    top: 100%;
+    height: 200%;
+    width: 115px;
+}
+
+.navOption {
+    display: flex;
+    align-items: center;
+    height: 50%;
+    padding: 0 10px;
+    background-color: white;
+    font-size: 13px;
+}
+
+.navOption > p {
+    text-align: left;
+    margin: 0;
+}
+
+.navOption:hover {
+    background-color: #f7f7f7;
+    cursor: pointer;
+}
+
+.firstOption {
+    top: 100%;
+    border-bottom: none;
+}
+
+.secondOption {
+    top: 200%;
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+}
+
+.closeNavSelectorButton {
+    position: fixed;
+    z-index: 10;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    cursor: default !important;
+    opacity: 0;
 }
 
 .searchBarForm {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.searchBar {
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     border-radius: 3px;
-    background-color: lightgrey;
 }
 
-.searchBar {
+.searchBarInput {
+    background-color: #e0e0e099;
+    height: 100%;
     width: 100%;
-    font-size: 1.1rem;
-    background-color: #D3D3D3;
+    font-size: 1rem;
     border: 0;
     outline: none;
     margin: 0;
+    border-radius: 3px;
+    padding-left: 15px;
+    font-size: 15px;
 }
 
-.glass {
-    height: 20px;
-    padding: 10px;
+.previewDivider {
+    margin: 0;
+    background-color: white;
 }
 
 .buttonsDiv {
     display: flex;
-    justify-content: space-around;
     align-items: center;
     height: 100%;
-    width: 30%;
-    margin-left: 20px;
-    padding-right: 100px;
-    box-sizing: border-box;
+    width: 35%;
 }
 
-.button {
-    background-color: white;
+.buttonsDiv > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.wishListIcon {
+    height: 50%;
+}
+
+.messageIcon {
+    height: 45%;
+}
+
+.sellNowButton {
+    height: 50%;
+    border: none;
     border-radius: 3px;
-    padding: 5px;
-    font-size: 0.9rem;
-}
-
-.normalColors {
-    border: 1px solid #C2634B;
-}
-
-.invertedColors {
-    border: 0;
-    background-color: #C2634B;
+    padding: 0 20px;
+    font-size: 14px;
     color: white;
+    background-color: #1bb3c3;
+}
+  
+.profile-dropdown {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.avatar-card2 {
+    height: 65%;
+    border-radius: 50%;
+}
+
+.accountTitleDropDown {
+    text-align: left;
+    font-size: 14px;
+    color: #929292;
+} 
+
+.dropdown-content {
+    position: absolute;
+    z-index: 5;
+    top: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 150px;
+    padding: 15px;
     border-radius: 4px;
+    background-color: white;
+}
+
+.dropdown-content a {
+    color: rgb(119, 119, 119);
+    text-decoration: none;
+    padding: 8px;
+}
+
+.logout {
+    color: rgb(211, 0, 0) !important       
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+@media only screen and (min-width: 1920px) {
+    .wishListIcon, .sellNowButton, .signUpButton, .logInButton  {
+        height: 40%;
+    }
+    .messageIcon {
+        height: 35%;
+    }
+    .avatar-card2 {
+        height: 60%;
+    }
+    .shoppingCartIcon {
+        padding: 4px;
+    }
+}
+
+.signUpButton {
+    height: 50%;
+    padding: 0px 20px;
+    margin-right: 15px;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    background-color: white;
+    border: 1px solid #1bb3c3;
+}
+
+.logInButton {
+    height: 50%;
+    padding: 0px 20px;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    color: white;
+    background-color: #1bb3c3;
+}
+
+.shoppingCartButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border: none;
+    background-color: white;
+}
+
+.shoppingCartIcon {
+    height: 65%;
+}
+
+.cartSideBarDiv {
+    position: fixed;
+    z-index: 10;
+    top: 0%;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 40%;
+    transform: translateX(0%);
+    transition: transform 200ms cubic-bezier(0.6, 0.1, 0.68, 0.53);
+    background-color: #f7f7f7;
+}
+
+.slideCartIn {
+    transform: translateX(-100%);
+}
+
+.cartSideBarDivider {
+    position: absolute;
+    height: 90%;
+    width: 1px;
+    top: 5%;
+    left: 0;
+    background: linear-gradient(transparent, #c2634b, transparent)
+}
+
+.dimmerDiv {
+    position: fixed;
+    z-index: 8;
+    top: 0%;
+    height: 100vh;
+    width: 100%;
+    pointer-events: none;
+    transition: backdrop-filter 200ms cubic-bezier(0.6, 0.1, 0.68, 0.53);
+}
+
+.dimming {
+    backdrop-filter: blur(3px);
+}
+
+.retractCartSideBarButton {
+    position: fixed;
+    z-index: 10;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 60%;
+    cursor: default !important;
+    opacity: 0;
+}
+
+.threeLineMenu {
+    display: none;
+    height: 100%;
+    padding-right: 10px;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.threeLineImage {
+    height: 90%;
+}
+
+@media only screen and (max-width: 768px) {
+    .searchDiv, .buttonsDiv {
+        display: none;
+    }
+    .logoDiv {
+        justify-content: center;
+    }
+    .logoLink {
+        margin: 0;
+        justify-content: center;
+        height: 90%;
+        padding-left: 40px;
+    }
+    .threeLineMenu {
+        display: flex;
+        align-items: center;
+    }
+    
 }

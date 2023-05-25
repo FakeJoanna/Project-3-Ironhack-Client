@@ -1,21 +1,26 @@
 .profilePageDiv {
-    background-color: #C2634B;
-    height: 92vh;
-}
-
-.topDiv {
-    margin: 0 10%;
-    width: 100%;
     display: flex;
-    text-align: left;
-    height: 40vh;
+    justify-content: center;
+    min-height: 91vh;
 }
 
-.profilePictureDiv {
-    flex-basis: 20%;
+.profilePageWrapper {
+    width: 80%;
+    margin: 20px;
+}
+
+.userDiv {
+    display: flex;
+    height: 320px;
+}
+
+.userPictureDiv {
+    flex-basis: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 20px;
+    background-color: white;
 }
 
 .profilePic {
@@ -23,50 +28,85 @@
     border-radius: 50%;
 }
 
-.informationDiv {
+.userInfoDiv {
     flex: 1;
     display: flex;
-    align-items: center;
+    background-color: white;
 }
 
-.infoTextDiv {
-    flex-basis: 50%;
-    background-color: #f7f7f7;
+.userInfoTextDiv {
+    flex: 1;
+    text-align: left;
+}
+
+.userInfoTextDiv > h2,
+.userInfoTextDiv > p {
     margin: 10px;
-    border-radius: 5px;
-    height: 80%;
 }
 
-.infoTextDiv h1 {
-    margin: 10px 5px 0;
+.userButtonsDivWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
 }
 
-.infoTextDiv p {
-    margin: 0 5px 0;
+.userButtonsDiv {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.divider {
-    margin: 0 10%;
-    font-size: 2rem;
-    width: 80%;
-    color: #f7f7f7;
+.followButtonDiv {
+    display: flex;
+    align-items: flex-end;
 }
 
-.tabButtonDiv {
+.profileButton {
     width: 100%;
+    border: none;
+    padding: 5px;
+    border: 2px solid rgb(239, 209, 170);
+    background-color: white;
+    border-radius: 5px;
+}
+
+.tabButtonsDiv {
+    margin-top: 20px;
     display: flex;
     justify-content: flex-start;
-    margin: 0 10%;
+    background-color: white;
 }
 
 .tabButton {
     font-size: 1rem;
-    padding: 10px;
-    background-color: #f7f7f7;
+    padding: 10px 10px 7px;
     border: none;
+    border-bottom: 3px solid white;
     cursor: pointer;
+    background-color: white;
+    box-sizing: border-box;
 }
 
 .tabButton:hover {
-    background-color: lightgrey;
+    background-color: rgb(247 247 247);
 }
+
+.activeTabButton {
+    border-color: #C2634B;
+}
+
+.profilePageDivider {
+    margin: 0;
+}
+
+.reviewsAndProductsDiv {
+    background-color: white;
+}
+
+@media only screen and (min-width: 1920px) {
+    .profilePageWrapper {
+        width: 50%;
+    }
+}
+

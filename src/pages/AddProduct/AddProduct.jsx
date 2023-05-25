@@ -22,6 +22,12 @@ function AddProduct() {
         title: "",
         description: "",
         price: 0,
+        state: "",
+        brand: "",
+        size: "",
+        color: "",
+        country: "",
+        category: "",
     })
 
     useEffect(() => {
@@ -37,7 +43,6 @@ function AddProduct() {
             imageData.append("image", files[i])
         }
         
-        console.log(imageData)
         axios.post(`${API_URL}/api/uploadmany`, imageData)
             .then(response => {
                 setImageURLs(response.data)
@@ -49,7 +54,6 @@ function AddProduct() {
     function handleChange(event) {
         const { name, value } = event.target
         setNewProduct(prevState => ({...prevState, [name]: value}))
-        console.log(newProduct)
     }
 
 
@@ -65,27 +69,58 @@ function AddProduct() {
     ///////////////////////
 
     return (
-        <div className="baseDiv">
-            <form className="addProductForm" onSubmit={handleSubmit}>
-                <h3>Add a product</h3>
-                <div className="imageFormDiv">
-                    <p>Add up to 4 images</p>
-                    <ImageInput imagesLoading={imagesLoading} setImageURLs={setImageURLs} imageURLs={imageURLs} handleImages={handleImages}/>
-                </div>
-                <div className="formDiv">
-                    <p>Title</p>
-                    <input name="title" type="text" alt="" onChange={handleChange}></input>
-                </div>
-                <div className="formDiv descriptionDiv">
-                    <p>Description</p>
-                    <textarea name="description" type="text" alt="" onChange={handleChange}></textarea>
-                </div>
-                <div className="formDiv">
-                    <p>Price</p>
-                    <input name="price" type="number" alt="" onChange={handleChange}></input>
-                </div>
-                <button className="uploadButton">Upload</button>
-            </form>
+        <div className="addProductDiv">
+            <div className="addProductFormDiv">
+                <form className="addProductForm" onSubmit={handleSubmit}>
+                    <div>
+                        <ImageInput imagesLoading={imagesLoading} setImageURLs={setImageURLs} imageURLs={imageURLs} handleImages={handleImages}/>
+                    </div>
+                    <div>
+                        <label>Title</label>
+                        <input name="title" placeholder="Name of the product" type="text" alt="" onChange={handleChange}></input>
+                    </div>
+                    <div>
+                        <label>Description</label>
+                        <textarea name="description" placeholder="Description of the product" type="text" alt="" onChange={handleChange}></textarea>
+                    </div>
+                    <div>
+                      <label>Category</label>
+                        <select name="category" onChange={handleChange}>
+                                <option value="">Select a category</option>
+                                <option value="Men">Men</option>
+                                <option value="Women">Women</option>
+                                <option value="Home">Home</option>
+                                <option value="Baby">Baby</option>
+                                <option value="Accessories">Accessories</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Price</label>
+                        <input name="price" type="number" alt=""  placeholder="$00.00" onChange={handleChange}></input>
+                    </div>
+                    <div>
+                        <label>State</label>
+                        <input name="state" placeholder="ex: Good" type="text" alt="" onChange={handleChange}></input>
+                    </div>
+                    <div>
+                        <label>Brand</label>
+                        <input name="brand" placeholder="ex: Zara" type="text" alt="" onChange={handleChange}></input>
+                    </div>
+                    <div>
+                        <label>Size</label>
+                        <input name="size" placeholder="ex: L" type="text" alt="" onChange={handleChange}></input>
+                    </div>
+                    <div>
+                        <label>Color</label>
+                        <input name="color" placeholder="ex: Blue" type="text" alt="" onChange={handleChange}></input>
+                    </div>
+                    <div>
+                        <label>Country</label>
+                        <input name="country" placeholder="ex: France" type="text" alt="" onChange={handleChange}></input>
+                    </div>
+                    <button type="submit" className="addProductButton">ADD A PRODUCT</button>
+                </form>
+            </div>
         </div>
     )
 }

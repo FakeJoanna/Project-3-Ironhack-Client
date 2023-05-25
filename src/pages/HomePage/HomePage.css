@@ -1,8 +1,87 @@
-.firstSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 25vh;
-    background-color: #C2634B;
-    color: white;
+.background-image {
+  position: relative;
+  height: 700px;
+  background-image: url("https://static.vinted.com/assets/seller-promotion/other/banner-wide-9b45d0aa9a311c4ff6013e9cf3bc2b6646468be3d2f553192c63598685fcc177.jpg");
+  background-repeat: no-repeat;
+  background-position: center 50%;
+  background-size: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  aspect-ratio: 1/0.67;
+  background-color: rgb(255 255 255);
+}
+
+
+.overlay-text {
+  color: rgb(0, 0, 0);
+  width: 70%;
+  font-size: 2vw;
+  font-weight: 500;
+  font-family: "roboto";
+}
+
+.overlay-link {
+  width: 100%;
+  margin: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+  
+  .overlay-text {
+    font-size: 20px;
+  }
+  .buttonOverlay span {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .overlay {
+    width: 50%;
+  }
+}
+
+
+.buttonOverlay {
+  width: 80%;
+  border: none;
+  margin-top: 15px;
+  padding: 7px 10px;
+  color: #FFF;
+  font-size: 1.5vw;
+  background-color: #27cedd;
+}
+
+.secondSectionHeader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.latestProductsText {
+  font-size: 30px;
+  font-weight: 300;
+  margin: 0;
+  margin-right: 20px;
+}
+
+.buttonSeeMore {
+  text-decoration: none;
+}
+
+.buttonSeeMore button{
+  border: none;
+  padding: 0 15px;
+  color: #999999;
 }

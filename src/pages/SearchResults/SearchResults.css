@@ -1,0 +1,13 @@
+.searchResultsPageDiv {
+    display: flex;
+    justify-content: center;
+    min-height: 91vh;
+}
+
+.searchResultsWrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 20px;
+    width: 80%;
+    margin: 20px;
+}

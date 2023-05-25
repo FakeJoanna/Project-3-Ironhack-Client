@@ -1,0 +1,71 @@
+.profilePictureInputDiv {
+    position: relative;
+    height: 80%;
+    aspect-ratio: 1/1;
+}
+
+.profilePictureCanvas {
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    pointer-events: none;
+}
+
+.currentPFP {
+    position: absolute;
+    border-radius: 50%;
+    height: 100%;
+    left: 0%;
+    pointer-events: none;
+}
+
+.editPFPButton {
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    left: 0%;
+    position: absolute;
+    cursor: pointer;
+}
+
+.hiddenImageInput {
+    display: none;
+}
+
+.loading {
+    background-color: #ccc;
+    background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 50%, #eee 50%, #eee 75%, transparent 75%, transparent);
+    background-size: 20px 20px;
+    animation: loading 0.8s ease-in-out infinite;
+}
+
+.changePFP-success-message {
+    display: none;
+    opacity: 0;
+    color: rgb(34, 152, 34);
+    transition: opacity 3s ease-in-out
+}
+
+.show-sucess-message {
+    opacity: 1;
+}
+
+@keyframes loading {
+    to {
+        background-position: 20px 0;
+    }
+}
+
+.rotatePFP {
+    animation: rotatePFP 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+  
+@keyframes rotatePFP {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

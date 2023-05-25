@@ -1,0 +1,30 @@
+.underNavbar {
+  height: 3vh;
+  border-bottom: 1px solid lightgrey;
+  background-color: white;
+}
+
+.text-underNavbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  margin-left: 18%;
+}
+
+.text-underNavbar p {
+  font-size: 14px;
+  color: #999999;
+  margin-bottom: 0;
+  margin-right: 15px;
+}
+
+.text-underNavbar a {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .underNavbar {
+    display: none;
+  }
+}

@@ -1,0 +1,22 @@
+.productsTabDiv {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 10px;
+}
+
+.noProductsDiv {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noProductsDiv > img {
+    height: 180px;
+    margin: 20px;
+}
+
+.noProductsDiv > p {
+    font-size: 1.5rem;
+}

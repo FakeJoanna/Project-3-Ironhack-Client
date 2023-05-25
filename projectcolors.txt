@@ -1,0 +1,5 @@
+orange: #c2634b / rgb(194, 99, 75)
+lighter orange: #efd1aa / rgb(239, 209, 170)
+background-grey: #f7f7f7 / rgb(247, 247, 247)
+
+green: #2D848A / rgb(45, 132, 138)

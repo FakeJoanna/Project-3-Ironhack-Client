@@ -1,0 +1,77 @@
+.reviewDiv {
+    height: 140px;
+    display: flex;
+}
+
+.reviewerDiv {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    padding: 10px;
+}
+
+.reviewerDiv > div {
+    height: 50%;
+    width: 100%;
+}
+
+.reviewerDiv img {
+    height: 100%;
+    border-radius: 50%;
+    margin-bottom: 10%;
+}
+
+.usernameStarsDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reviewerDiv p {
+    margin: 0;
+}
+
+.reviewTextDiv {
+    width: 30%;
+    text-align: left;
+    padding: 10px 0;
+}
+
+.reviewImagesDiv {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.reviewImagesDiv > img {
+    height: 90%;
+}
+
+.noReviewsDiv {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noReviewsDiv > img {
+    height: 180px;
+    margin: 20px;
+}
+
+.noReviewsDiv > p {
+    font-size: 1.5rem;
+}
+
+.reviewDivider {
+    margin: 0;
+    width: 95%;
+    margin-left: 2.5%;
+}
+
+.reviewDivider:last-child {
+    display: none;
+}

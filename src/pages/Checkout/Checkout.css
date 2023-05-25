@@ -1,0 +1,211 @@
+.checkoutPageDiv {
+    z-index: -2;
+    display: flex;
+    justify-content: center;
+    min-height: 91vh;
+}
+
+.checkoutWrapper {
+    width: 90%;
+    margin: 20px;
+}
+
+.checkoutDetails {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkoutDetailsWrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    transition: transform 1.7s;
+}
+
+.checkoutWrapper h3 {
+    margin: 0 10px 5px;
+}
+
+.shippingWrapper {
+    z-index: 4;
+}
+
+.wiperDiv {
+    z-index: 3;
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 50%;
+    pointer-events: none;
+    background-color: #f7f7f7;
+    transition: transform 2s;
+}
+
+.wipe-away {
+    transform: translateX(-200%)
+}
+
+.interactiveCheckoutButtonDiv {
+    z-index: 4;
+    width: 100px;
+}
+
+.interactiveCheckoutButton {
+    z-index: 4;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.arrowCheckout {
+    width: 100%;
+    fill: #c2634b;
+    transition: rotate 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.rotate {
+    rotate: -180deg;
+    animation: colorChange 1s forwards;
+}
+
+@keyframes colorChange {
+    0% {fill: #c2634b}
+    50% {fill: #2D848A}
+    75% {transform: translateX(-8px); fill: #2D848A}
+    85% {transform: translateX(12px); fill: #2D848A}
+    100% {transform: translateX(0); fill: #2D848A}
+}
+
+.paymentTerminal {
+    position: absolute;
+    z-index: -1;
+    top: 14%;
+    left: 0;
+    width: 46.4%;
+    padding-left: 10%;
+    flex: 1;
+    text-align: left;
+}
+
+.paymentTerminalWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.placeOrderButton {
+    margin: 5px 10px;
+    padding: 10px;
+    border: 1px solid #2D848A;
+    border-radius: 3px;
+    color: white;
+    background-color: #2D848A;
+    transition: 0.3s ease;
+}
+
+.placeOrderButton:hover {
+    color: #2D848A;
+    background-color: white;
+}
+
+@media only screen and (min-width: 1920px) {
+    .paymentTerminal {
+        left: 1.4%;
+    }
+}
+
+.checkoutProductDiv {
+    display: flex;
+    align-items: center;
+    height: 150px;
+    margin: 10px;
+    background-color: white;
+}
+
+.checkoutProductImagesDiv {
+    height: 100%;
+}
+
+.checkoutProductImage {
+    height: 100%;
+    padding: 10px;
+}
+
+.checkoutProductInfo {
+    flex: 1;
+    height: 100%;
+}
+
+.checkoutProductTitleAndPrice {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    padding: 20px 0;
+}
+
+.checkoutProductTitleAndPrice > h6 {
+    margin: 0;
+}
+
+.hackyDivider {
+    position: absolute;
+    border: 1px solid #c2634b;
+    top: 50%;
+    width: 90%;
+}
+
+.orderPlacedDiv {
+    z-index: 10;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+    top: 25%;
+    font-size: 25px;
+    background-color: white;
+    border: 1px solid #c2634b;
+    transform: scale(0);
+    transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1)
+}
+
+.scaleUp {
+    transform: scale(1);
+}
+
+@media only screen and (max-width: 768px) {
+    .wiperDiv, .interactiveCheckoutButtonDiv {
+        display: none;
+    }
+    .checkoutDetails {
+        flex-direction: column;
+    }
+    .shippingWrapper {
+        margin-top: 30px;
+    }
+    .paymentTerminal {
+        position: static;
+        z-index: 0;
+        width: 90%;
+        margin-top: 30px;
+        padding: 0;
+    }
+    .checkoutProductDiv {
+        flex-direction: column;
+        height: 375px;
+        width: 90%;
+        margin: 10px 5%;
+    }
+    .checkoutProductImagesDiv {
+        height: 40%;
+    }
+}

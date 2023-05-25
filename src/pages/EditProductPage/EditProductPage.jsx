@@ -1,10 +1,10 @@
 import "./EditProductPage.css"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import axios from "axios";
-
+import { AuthContext } from "../../context/auth.context"
 import ImageInput from "../../components/ImageInput/ImageInput";
  
 const API_URL = "http://localhost:5005";
@@ -12,24 +12,31 @@ const API_URL = "http://localhost:5005";
  
 function EditProjectPage() {
 
-    const { productId } = useParams();   
-    const navigate = useNavigate();  
+    const { user } = useContext(AuthContext)
+
+    const { productId } = useParams()
+    const navigate = useNavigate()
 
     const [imagesLoading, setImagesLoading] = useState(false)
     const [imageURLs, setImageURLs] = useState([])
     const [product, setProduct] = useState({
-        img: [],
+        img: [""],
         title: "",
         description: "",
         price: 0,
+        state: "",
+        brand: "",
+        size: "",
+        color: "",
+        country: "",
+        category: "",
     })
 
     useEffect(() => {
         axios.get(`${API_URL}/api/products/${productId}`)
             .then((response) => {
-                const oneProduct = response.data;
-                setProduct(oneProduct)
-                setImageURLs(oneProduct.img)
+                setProduct(response.data)
+                setImageURLs(response.data.img)
                 setImagesLoading(!imagesLoading)
             })
             .catch((error) => console.log(error));
@@ -76,7 +83,7 @@ function EditProjectPage() {
     function handleDelete() {                    
         axios.delete(`${API_URL}/api/products/${productId}`)
         .then(() => {
-            navigate("/products");
+            navigate(`/member/${user._id}`);
         })
         .catch((err) => console.log(err));
     };  
@@ -84,33 +91,60 @@ function EditProjectPage() {
       ///////////////////////
     
     return (
-        <>
-            <div className="baseDiv">
+        <div className="editProductDiv">
+            <div className="editProductFormDiv">
                 <form className="editProductForm" onSubmit={handleSubmit}>
-                    <h3>Edit product</h3>
-                    <div className="editImageFormDiv">
-                        <p>Change images</p>
+                    <div>
                         <ImageInput imagesLoading={imagesLoading} setImageURLs={setImageURLs} imageURLs={imageURLs} handleImages={handleImages}/>
                     </div>
-                    <div className="editFormDiv">
-                        <p>Title</p>
-                        <input name="title" type="text" alt="" onChange={handleChange} value={product.title}></input>
+                    <div>
+                        <label>Title</label>
+                        <input value={product.title} name="title" placeholder="Name of the product" type="text" alt="" onChange={handleChange}></input>
                     </div>
-                    <div className="editFormDiv descriptionDiv">
-                        <p>Description</p>
-                        <textarea name="description" type="text" alt="" onChange={handleChange} value={product.description}></textarea>
+                    <div>
+                        <label>Description</label>
+                        <textarea value={product.description} name="description" placeholder="Description of the product" type="text" alt="" onChange={handleChange}></textarea>
                     </div>
-                    <div className="editFormDiv">
-                        <p>Price</p>
-                        <input name="price" type="number" alt="" onChange={handleChange} value={product.price}></input>
+                    <div>
+                      <label>Category</label>
+                        <select value={product.category} name="category" onChange={handleChange}>
+                                <option value="">Select a category</option>
+                                <option value="Men">Men</option>
+                                <option value="Women">Women</option>
+                                <option value="Home">Home</option>
+                                <option value="Baby">Baby</option>
+                                <option value="Accessories">Accessories</option>
+                        </select>
                     </div>
-                    <button className="uploadButton" onClick={handleSubmit}>EDIT</button>
+                    <div>
+                        <label>Price</label>
+                        <input value={product.price} name="price" type="number" alt=""  placeholder="$00.00" onChange={handleChange}></input>
+                    </div>
+                    <div>
+                        <label>State</label>
+                        <input value={product.state} name="state" placeholder="ex: Good" type="text" alt="" onChange={handleChange}></input>
+                    </div>
+                    <div>
+                        <label>Brand</label>
+                        <input value={product.brand} name="brand" placeholder="ex: Zara" type="text" alt="" onChange={handleChange}></input>
+                    </div>
+                    <div>
+                        <label>Size</label>
+                        <input value={product.size} name="size" placeholder="ex: L" type="text" alt="" onChange={handleChange}></input>
+                    </div>
+                    <div>
+                        <label>Color</label>
+                        <input value={product.color} name="color" placeholder="ex: Blue" type="text" alt="" onChange={handleChange}></input>
+                    </div>
+                    <div>
+                        <label>Country</label>
+                        <input value={product.country} name="country" placeholder="ex: France" type="text" alt="" onChange={handleChange}></input>
+                    </div>
+                    <button type="submit" className="submitEditsButton">EDIT PRODUCT</button>
                 </form>
-
+                <button className="deleteProductButton" onClick={handleDelete}>DELETE PRODUCT</button>
             </div>
-            {/* Move to product details page and show if product belongs to user? */}
-            {/* <button className="deleteProductButton" onClick={handleDelete}>DELETE PRODUCT</button> */}
-        </>
+        </div>
     );
   }
    

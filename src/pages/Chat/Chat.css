@@ -1,0 +1,75 @@
+.chatPageDiv {
+    display: flex;
+    justify-content: center;
+    min-height: 91vh;
+}
+
+.chatPageWrapper {
+    height: 620px;
+    width: 80%;
+    margin: 20px;
+    padding: 10px;
+    background-color: white;
+}
+
+.chatBoxDiv {
+    display: flex;
+    height: 600px;
+    border-radius: 5px;
+    border: 1px solid #c2634b;
+}
+
+.chatSideBar {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #c2634b;
+}
+
+.sideBarChatDiv {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid grey;
+    overflow: hidden;
+}
+
+.sideBarChatDiv > p {
+    margin: 0;
+}
+
+.sideBarChatDiv > img {
+    height: 80%;
+    border-radius: 50%;
+    margin: 15px;
+}
+
+.sideBarChatDiv:hover {
+    background-color: #f7f7f7;
+}
+
+.noChatsText {
+    margin: 10px;
+    align-self: center;
+    font-style: italic;
+    color: grey;
+}
+
+.mainChatDiv {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (min-width: 1920px) {
+    .chatPageWrapper {
+        width: 50%;
+    }
+}

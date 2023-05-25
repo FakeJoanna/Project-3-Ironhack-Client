@@ -1,0 +1,58 @@
+.productDetailsDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productDetailsWrapper {
+  width: 80%;
+  display: flex;
+  margin: 20px;
+}
+
+.productDetailsMainDiv {
+  margin: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(247 247 247);
+}
+
+.editProductButton {
+  width: 502px;
+  border: none;
+  padding: 5px;
+  background-color: #C2634B;
+  color: white;
+  border-radius: 5px;
+}
+
+.youMightAlsoLikeWrapper {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.youMightAlsoLikeText {
+  font-size: 30px;
+  font-weight: 300;
+  margin: 0;
+  margin-right: 20px;
+}
+
+.youMightAlsoLikeDiv {
+  padding: 5px 15vh;
+  text-align: left;
+}
+
+@media only screen and (min-width: 1920px) {
+  .productDetailsWrapper, .youMightAlsoLikeWrapper {
+      width: 50%;
+  }
+}
+
+.DetailSidebar.showOfferPopup {
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity to make it darker or lighter */
+}

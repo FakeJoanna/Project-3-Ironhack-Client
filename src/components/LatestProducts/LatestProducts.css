@@ -1,10 +1,29 @@
-.latestProductsText {
-    text-align: left;
-    margin: 15px;
+.latestProductsDiv {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
 }
 
-.latestProductsDiv {
-    margin: 10px;
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+.wardrobeText {
+    font-size: 22px;
+    font-weight: 300;
+    margin: 20px 20px 0;
+    text-align: left;
+}
+
+@media only screen and (max-width: 768px) {
+    .latestProductsDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .latestProductsDiv {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px;
+    }
 }

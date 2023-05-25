@@ -1,100 +1,99 @@
-.baseDiv {
+.editProductDiv {
     display: flex;
     justify-content: center;
-    background-color: #C2634B;
-    height: 92vh;
+    align-items: center;
+    min-height: 91vh;
 }
 
-.baseDiv h3 {
-    text-align: left;
-    color: white
+.editProductFormDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 20px;
 }
 
 .editProductForm {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 80%;
-}
-
-.editProductForm p {
-    margin: 15px 5px;
-}
-
-.editImageFormDiv {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-/* to be deleted */
-
-.imageInput { 
-    border: 1px dashed black;
-    height: 50px;
+    font-size: 16px;
     width: 100%;
 }
 
-.editFormDiv {
+.editProductForm > div {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 20px;
     background-color: white;
-    margin-bottom: 20px;
 }
 
-.editFormDiv > p {
-    text-align: left;
+.editProductFormDiv label {
+    max-width: 200px;
+}
+
+.editProductForm input {
+    font-family: "Open Sans",sans-serif;
     width: 50%;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1.8px solid #f5f6f7;
 }
 
-.editFormDiv > input {
+.editProductForm textarea {
+    font-family: "Open Sans",sans-serif;
+    height: 20vh;
     width: 50%;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1.8px solid #f5f6f7;
 }
 
-.editFormDiv > textarea {
+.editProductForm select {
+    font-family: "Open Sans",sans-serif;
     width: 50%;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1.8px solid #f5f6f7;
+    color: gray;
+    background-color: white;
 }
 
-.descriptionDiv {
-    flex: 2;
-}
-
-.uploadButton {
-    background: rgb(164, 142, 255);
-    border: 1px solid rgb(164, 142, 255);;
-    border-radius: 4px;
-    color: #fff;
+.submitEditsButton {
+    font-family: "Open Sans",sans-serif;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    padding: 16px;
-    text-decoration: none;
-    transition: 0.3s ease background;
-    width: 100%;
-    margin-bottom: 20px;
+    padding: 10px 63px;
+    background-color: #09aeb7;
+    border: 1px solid #09aeb7;
+    color: #fff;
+    transition: 0.3s ease;
 }
 
-.uploadButton:hover {
-    background: #fff;
-    color: #43a3e6;
-    transition: 0.3s ease background;
+.editProductButton:hover {
+    background-color: white;
+    color: #09aeb7;
+}
+
+@media only screen and (min-width: 1920px) {
+    .editProductForm {
+        width: 50%;
+    }
 }
 
 .deleteProductButton {
-    background: #b74848;
-    border: 1px solid #b74848;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-    padding: 16px;
-    text-decoration: none;
-    transition: 0.3s ease background;
     width: 100%;
-}
-
-.deleteProductButton:hover {
-    background: #fff;
-    color: #b74848;
-    transition: 0.3s ease background;
+    font-family: "Open Sans",sans-serif;
+    margin: 10px;
+    padding: 10px 63px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #b70909;
+    border: 1px solid #b70909;
+    color: #fff;
+    transition: 0.3s ease;
 }

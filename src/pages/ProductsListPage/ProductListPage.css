@@ -1,5 +1,27 @@
-.listDiv {
-    margin: 10px;
+.productsListDiv {
+    display: flex;
+    justify-content: center;
+    min-height: 91vh;
+}
+
+.productsListWrapper {
+    width: 80%;
+    padding: 10px;
+}
+
+.allProductsTitle {
+    text-align: left;
+}
+
+.productsListGridDiv {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 10px;
+    margin: 0 -20px;
+}
+
+@media only screen and (min-width: 1920px) {
+    .productsListWrapper {
+        width: 50%;
+    }
 }

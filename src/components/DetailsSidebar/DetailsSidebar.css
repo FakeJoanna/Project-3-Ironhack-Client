@@ -1,0 +1,94 @@
+.detailsSidebarDiv {
+  background-color: white;
+  margin-left: 20px;
+  width: 315px;
+  padding: 10px;
+}
+
+.sidebarPrice {
+  text-align: left;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.details {
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  color: grey;
+  margin: 0;
+}
+
+.details span:first-child {
+  text-transform: uppercase;
+  margin-right: 5px;
+}
+
+.sidebarDescription {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.creatorUserDiv {
+  display: flex;
+}
+
+.sidebarProfilePicDiv {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.sidebarProfilePic {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.nameReviewDiv {
+  padding: 10px;
+  text-align: left;
+  width: 80%;
+}
+
+.sidebarName {
+  font-size: 20px;
+  margin: 0;
+}
+
+.sidebarReviews {
+  font-size: 15px;
+  margin: 0;
+  color: grey;
+}
+
+.locationLastSeenDiv {
+  text-align: left;
+}
+
+.locationLastSeenDiv > p {
+  margin: 0;
+}
+
+.lastDivider {
+  margin-bottom: 10px;
+}
+
+.sidebarButton {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 5px;
+  background-color: #09aeb7;
+  border: none;
+  color: #fff;
+}
+
+.sidebarButtonGreen {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 5px;
+  background-color: #FFF;
+  border: 1.5px solid #09aeb7;
+  color: #000000;
+}

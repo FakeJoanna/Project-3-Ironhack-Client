@@ -1,0 +1,79 @@
+.carouselDiv {
+    margin: 10px;
+    position: relative;
+    height: 502px;
+    width: 502px;
+    transition: transform 400ms ease;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.carouselImage {
+    position: absolute;
+    left: 0;
+    transition: 0.4s ease;
+}
+
+.carouselImage[data-status="unknown"] {
+    opacity: 0;
+}
+
+.carouselImage[data-status="before"] {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.carouselImage[data-status="after"] {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.carouselImage[data-status="becoming-active-from-left"] {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: none;
+}
+
+.carouselImage[data-status="becoming-active-from-right"] {
+    transform: translateX(100%);
+    opacity: 0;
+    transition: none;
+}
+
+.carouselLeft {
+    position: absolute;
+    z-index: 5;
+    height: 25%;
+    width: 10%;
+    top: 37.5%;
+    left: 0%;
+    border: none;
+    border-left: 0;
+    border-radius: 0 10px 10px 0;
+    background-color: transparent;
+}
+
+.carouselRight {
+    position: absolute;
+    z-index: 5;
+    height: 25%;
+    width: 10%;
+    top: 37.5%;
+    left: 89.5%;
+    border: none;
+    border-right: 0;
+    border-radius: 10px 0 0 10px;
+    background-color: transparent;
+}
+
+.carouselLeft > svg {
+    height: 100%;
+    width: 100%;
+    rotate: 180deg;
+}
+
+.carouselRight > svg {
+    height: 100%;
+    width: 100%;
+}
+

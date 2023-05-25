@@ -1,13 +1,9 @@
 import "./Loading.css";
 
-const Loading = () => {
+function Loading() {
   return (
-    <div className="wrapper">
-      <div className="spinner">
-        <div className="bounce1"></div>
-        <div className="bounce2"></div>
-        <div className="bounce3"></div>
-      </div>
+    <div className="loadingDiv">
+      <img className="loadingGif" src="https://wasip.com/wp-content/uploads/2022/12/turtleneck-1.gif" alt="" />
     </div>
   );
 };

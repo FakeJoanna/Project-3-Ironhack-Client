@@ -1,0 +1,52 @@
+.mobileNavbarMenuDiv {
+    height: 94vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    background-color: white;
+}
+
+.mobileNavbarMenuDiv > hr {
+    margin: 0;
+}
+
+.mobileMenuRow {
+    display: flex;
+    align-items: center;
+    height: 10%;
+    cursor: pointer;
+}
+
+.mobileMenuRow > p {
+    margin: 0;
+}
+
+.mobileMenuImageDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 20%;
+}
+
+.mobileMenuProfilePic {
+    height: 80%;
+    border-radius: 50%;
+}
+
+.mobileMenuFavouritesIcon {
+    height: 75%;
+}
+
+.mobileMenuMessagesIcon {
+    height: 65%;
+}
+
+.mobileMenuButton {
+    margin: 20px 0;
+    width: 30%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #efd1aa;
+}

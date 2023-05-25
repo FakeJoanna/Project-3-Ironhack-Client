@@ -1,0 +1,138 @@
+.chatHeaderDiv {
+    display: flex;
+    align-items: center;
+    height: 7%;
+    width: 100%;
+    border-bottom: 1px solid grey;
+}
+
+.chatHeaderText {
+    flex: 1;
+    margin: 0;
+}
+
+.deleteChatIcon {
+    align-self: flex-end;
+    height: 100%;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.messagesDiv {
+    height: 83%;
+    width: 100%;
+    padding-top: 10px;
+    overflow: auto;
+}
+
+.messageInputDiv {
+    height: 10%;
+    width: 100%;
+}
+
+.chatInput {
+    height: 100%;
+    width: 100%;
+}
+
+.singleMessageDiv {
+    display: flex;
+    align-items: center;
+}
+
+.yourOwn {
+    justify-content: flex-end;
+}
+
+.yourOwn .messageText {
+    background-color: lightgreen;
+}
+
+.otherUser {
+    justify-content: flex-start;
+}
+
+.otherUser .messageText {
+    background-color: lightblue;
+}
+
+.offerMessageText {
+    display: flex;
+    flex-direction: column;
+    background-color: lightcoral !important;
+}
+
+.offerTitle {
+    margin: 10px 0 5px;
+}
+
+.offerMessageTime {
+    position: relative;
+    top: 130px;
+    color: grey;
+}
+
+.messageWrapper {
+    max-width: 40%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.messageText {
+    margin: 0;
+    padding: 10px 20px;
+    border-radius: 10px;
+    overflow-wrap: break-word;
+}
+
+.messageTime {
+    position: relative;
+    top: 35px;
+    color: grey;
+}
+
+.messagePFP {
+    margin: 0 10px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.offerMessageWrapper {
+    max-width: 40%;
+    margin-bottom: 20px;
+}
+
+.offerMessage {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.offerImage {
+    height: 150px;
+}
+
+.chatOfferButtons {
+    display: flex;
+    padding: 0 40px 0 50px;
+}
+
+.chatOfferButtons > button {
+    width: 40%;
+    margin: 0 10px;
+    border: none;
+    border-radius: 3px;
+}
+
+.checkoutMessageWrapper {
+    max-width: 40%;
+    margin-bottom: 20px;
+}
+
+.checkoutMessageWrapper > button {
+    width: 40%;
+    margin: 0 10px;
+    border: none;
+    border-radius: 3px;
+}
