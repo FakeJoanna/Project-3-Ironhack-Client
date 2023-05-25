@@ -8,6 +8,7 @@ function HomePage() {
   return (
 
     <div className="homePageDiv">
+
       <div className="background-image">
 
         <div className="overlay">
@@ -22,7 +23,7 @@ function HomePage() {
       </div>
 
 
-      <div className="container">
+      <div className="homePageSecondSectionWrapper">
 
         <div className="secondSectionHeader">
           <h1 className="latestProductsText">Recommended for you</h1>
@@ -32,6 +33,11 @@ function HomePage() {
         </div>
 
         <LatestProducts />
+
+        <div className="secondSectionHeader">
+          <h1 className="wardrobeText">Wardrobe of Followers</h1>
+        </div>
+
         <FollowerWardrobe />
       </div>
     </div>

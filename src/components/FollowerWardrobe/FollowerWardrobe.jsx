@@ -34,8 +34,6 @@ function FollowerWardrobe() {
   return (
     <>
       {followerWardrobe.length > 0 && (
-        <>
-          <h1 className="wardrobeText">Wardrobe of Followers</h1>
 
           <div className="wardrobeDiv">
             
@@ -45,7 +43,6 @@ function FollowerWardrobe() {
               
             
           </div>
-        </>
         )}
     </>
   )

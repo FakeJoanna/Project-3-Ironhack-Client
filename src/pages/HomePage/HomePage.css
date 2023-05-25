@@ -1,6 +1,14 @@
+.homePageDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 91vh;
+}
+
 .background-image {
   position: relative;
   height: 700px;
+  width: 100%;
   background-image: url("https://static.vinted.com/assets/seller-promotion/other/banner-wide-9b45d0aa9a311c4ff6013e9cf3bc2b6646468be3d2f553192c63598685fcc177.jpg");
   background-repeat: no-repeat;
   background-position: center 50%;
@@ -19,7 +27,6 @@
   aspect-ratio: 1/0.67;
   background-color: rgb(255 255 255);
 }
-
 
 .overlay-text {
   color: rgb(0, 0, 0);
@@ -61,12 +68,19 @@
   background-color: #27cedd;
 }
 
+.homePageSecondSectionWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 20px;
+}
+
 .secondSectionHeader {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  padding: 20px;
 }
 
 .latestProductsText {
