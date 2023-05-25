@@ -49,7 +49,7 @@ function ChatBox({ singleChat })  {
 
         axios.get(`${API_URL}/api/products/${offer.productId}`)
         .then((response) => {
-            console.log(response)
+            
             const offerMessage = "Offer: " + offer.price.toString() + "€";
             const offerData = {
                 room: singleChat._id,
@@ -74,6 +74,8 @@ function ChatBox({ singleChat })  {
     //This useEffect adds an event listener for the enter key to send messages and joins a socket room whose ID is determined by the MongoDB Room document - this makes each room unique and avoids user collisions
     useEffect(() => {
         //we connect to the client, we join a room, and we set up an event listener to receive messages
+        console.log("the useEffect for the chatbox is firing, and the socket connection should set up")
+
         socket.connect()
         socket.emit("join_room", singleChat._id)
         
