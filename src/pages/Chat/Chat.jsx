@@ -10,7 +10,7 @@ import { ChatIDsContext } from "../../context/chatIDs.context"
 import ChatBox from "../../components/ChatBox/ChatBox"
 import Loading from "../../components/Loading/Loading";
 
-const API_URL =  process.env.API_URL
+const API_URL =  process.env.REACT_APP_API_URL
 
 function Chat() {
 

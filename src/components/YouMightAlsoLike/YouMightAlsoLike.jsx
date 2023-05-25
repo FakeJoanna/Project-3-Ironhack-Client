@@ -7,7 +7,7 @@ import "../LatestProducts/LatestProducts.css"
 import ProductCard from "../ProductCard/ProductCard"
 import { useState } from 'react';
 
-const API_URL =  process.env.API_URL;
+const API_URL =  process.env.REACT_APP_API_URL;
 
 function YouMightAlsoLike() {
 

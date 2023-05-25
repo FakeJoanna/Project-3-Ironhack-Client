@@ -11,7 +11,7 @@ import ProductsTab from "../../components/ProductsTab/ProductsTab";
 import ReviewsTab from "../../components/ReviewsTab/ReviewsTab";
 import Loading from "../../components/Loading/Loading";
 
-const API_URL =  process.env.API_URL; 
+const API_URL =  process.env.REACT_APP_API_URL; 
 
 function ProfilePage() {
 

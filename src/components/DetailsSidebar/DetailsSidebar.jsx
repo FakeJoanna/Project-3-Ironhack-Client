@@ -7,7 +7,7 @@ import { CartContext } from "../../context/cart.context"
 import Offer from "../Offer/Offer"
 import axios from "axios";
 
-const API_URL =  process.env.API_URL
+const API_URL =  process.env.REACT_APP_API_URL
 
 
 

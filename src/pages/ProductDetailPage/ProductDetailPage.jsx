@@ -10,7 +10,7 @@ import Loading from "../../components/Loading/Loading"
 import YouMightAlsoLike from "../../components/YouMightAlsoLike/YouMightAlsoLike"
 import axios from "axios";
 
-const API_URL =  process.env.API_URL;     
+const API_URL =  process.env.REACT_APP_API_URL;     
 
 function ProductDetailPage() {
 

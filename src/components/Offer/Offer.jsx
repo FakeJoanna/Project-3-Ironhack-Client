@@ -7,7 +7,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import { ChatIDsContext } from "../../context/chatIDs.context"
  
-const API_URL =  process.env.API_URL
+const API_URL =  process.env.REACT_APP_API_URL
 
 
 function Offer({ productOwner }) {
