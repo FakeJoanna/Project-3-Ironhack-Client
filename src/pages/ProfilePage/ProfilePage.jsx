@@ -99,6 +99,7 @@ function ProfilePage() {
               :
 
               <Loading />
+
               }
 
             </div>
@@ -145,6 +146,7 @@ function ProfilePage() {
             :
             
             <Loading />
+            
             }
             
           </div>

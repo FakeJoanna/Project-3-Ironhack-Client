@@ -1,7 +1,11 @@
+.centeringDiv {
+  display: flex;
+  justify-content: center;
+}
+
 .productCardDiv {
   height: 500px;
   width: 250px;
-  padding: 5px;
 }
 
 .productCardLink {
@@ -33,7 +37,6 @@
   justify-content: center;
   align-items: center;
   height: 300px;
-  width: 240px;
   overflow: hidden;
 }
 

@@ -22,30 +22,32 @@ function ProductCard({product}) {
     }
     
     return (
-        
-        <div className="productCardDiv">
-            
-                <div className="productCard">
-                    <Link to={`/member/${product.user[0]._id}`} className="productCardLink">
-                        <div className="productCardHeader">
-                            <img src={product.user[0].profilePicture} alt="" className="productCardHeaderPFP" />
-                            <p className="productCardHeaderUsername">{product.user[0].name}</p>
-                        </div>
-                    </Link>
+        <div className="centeringDiv">
 
-                    <Link to={`/products/${product._id}`} className="productCardLink">
-                        <div className="productCardImageDiv">
-                            <img src={product.img[0]} alt="" className="productCardImage" />
-                        </div>
+            <div className="productCardDiv">
+                
+                    <div className="productCard">
+                        <Link to={`/member/${product.user[0]._id}`} className="productCardLink">
+                            <div className="productCardHeader">
+                                <img src={product.user[0].profilePicture} alt="" className="productCardHeaderPFP" />
+                                <p className="productCardHeaderUsername">{product.user[0].name}</p>
+                            </div>
+                        </Link>
 
-                        <div className="productCardInfoDiv">
-                            <p className="priceProduct">${product.price}</p>
-                            <p className="descriptionProduct">{product.title}</p>
-                            <p className="descriptionProduct">{product.size}</p>
-                            <p className="descriptionProduct">{product.brand}</p>
-                        </div>
-                    </Link>  
-                </div>
+                        <Link to={`/products/${product._id}`} className="productCardLink">
+                            <div className="productCardImageDiv">
+                                <img src={product.img[0]} alt="" className="productCardImage" />
+                            </div>
+
+                            <div className="productCardInfoDiv">
+                                <p className="priceProduct">${product.price}</p>
+                                <p className="descriptionProduct">{product.title}</p>
+                                <p className="descriptionProduct">{product.size}</p>
+                                <p className="descriptionProduct">{product.brand}</p>
+                            </div>
+                        </Link>  
+                    </div>
+            </div>
         </div>
        
         

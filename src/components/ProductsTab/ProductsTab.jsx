@@ -28,7 +28,4 @@ function ProductsTab({products}) {
     )
 }
 
-
-
-
 export default ProductsTab
