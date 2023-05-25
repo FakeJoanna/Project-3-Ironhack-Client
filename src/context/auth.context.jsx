@@ -7,6 +7,7 @@ import axios from "axios"
 const AuthContext = React.createContext()
 
 const API_URL =  process.env.REACT_APP_API_URL
+const ORIGIN_HEADERS = process.env.REACT_APP_ORIGIN_HEADERS
 
 function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -32,7 +33,7 @@ function AuthProviderWrapper(props) {
     const storedToken = localStorage.getItem("authToken")
 
     if (storedToken) {
-      axios.get(`${API_URL}/auth/verify`, { headers: { Authorization: `Bearer ${storedToken}` } })
+      axios.get(`${API_URL}/auth/verify`, { headers: { Authorization: `Bearer ${storedToken}`, Origin: ORIGIN_HEADERS } })
       .then((response) => {
         const user = response.data
         setIsLoggedIn(true)
@@ -53,7 +54,7 @@ function AuthProviderWrapper(props) {
   }
 
   function signup(requestBody) {
-    axios.post(`${API_URL}/auth/signup`, requestBody)
+    axios.post(`${API_URL}/auth/signup`, requestBody, { headers: { Origin: ORIGIN_HEADERS } })
     .then((response) => {
       storeToken(response.data.authToken)
       authenticateUser()
@@ -67,7 +68,7 @@ function AuthProviderWrapper(props) {
 
   const googleSignup = useGoogleLogin({
     onSuccess: codeResponse => {
-      axios.post(`${API_URL}/auth/signup-google`, { accessToken: codeResponse.access_token })
+      axios.post(`${API_URL}/auth/signup-google`, { accessToken: codeResponse.access_token }, { headers: { Origin: ORIGIN_HEADERS } })
       .then(response => {
         storeToken(response.data.authToken)
         authenticateUser()
@@ -81,7 +82,7 @@ function AuthProviderWrapper(props) {
   })
 
   function login(requestBody) {
-    axios.post(`${API_URL}/auth/login`, requestBody)
+    axios.post(`${API_URL}/auth/login`, requestBody, { headers: { Origin: ORIGIN_HEADERS } })
     .then((response) => {
       storeToken(response.data.authToken)
       authenticateUser()
@@ -95,7 +96,7 @@ function AuthProviderWrapper(props) {
 
   const googleLogin = useGoogleLogin({
     onSuccess: codeResponse => {
-      axios.post(`${API_URL}/auth/login-google`, { accessToken: codeResponse.access_token })
+      axios.post(`${API_URL}/auth/login-google`, { accessToken: codeResponse.access_token }, { headers: { Origin: ORIGIN_HEADERS } })
       .then(response => {
         storeToken(response.data.authToken)
         authenticateUser()
@@ -111,7 +112,7 @@ function AuthProviderWrapper(props) {
   function changePassword(requestBody) {
     const storedToken = localStorage.getItem("authToken")
 
-    axios.post(`${API_URL}/auth/change-password`, requestBody,  { headers: { Authorization: `Bearer ${storedToken}` } })
+    axios.post(`${API_URL}/auth/change-password`, requestBody,  { headers: { Authorization: `Bearer ${storedToken}`, Origin: ORIGIN_HEADERS } })
     .then((response) => {
       const successMessage = response.data.message
       setErrorMessage(successMessage)
@@ -129,7 +130,7 @@ function AuthProviderWrapper(props) {
   function changePFP(requestBody) {
     const storedToken = localStorage.getItem("authToken")
 
-    axios.post(`${API_URL}/auth/change-pfp`, requestBody,  { headers: { Authorization: `Bearer ${storedToken}` } })
+    axios.post(`${API_URL}/auth/change-pfp`, requestBody,  { headers: { Authorization: `Bearer ${storedToken}`, Origin: ORIGIN_HEADERS } })
     .then((response) => {
       setUser(prevState => ({...prevState, profilePicture: response.data.profilePicture}))
       storeToken(response.data.authToken)
