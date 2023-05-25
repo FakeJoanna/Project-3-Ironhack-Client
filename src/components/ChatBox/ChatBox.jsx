@@ -10,7 +10,7 @@ import { ChatIDsContext } from "../../context/chatIDs.context"
 import { io } from "socket.io-client"
 
 const API_URL =  process.env.REACT_APP_API_URL
-const CHAT_URL = process.env.CHAT_URL
+const CHAT_URL = process.env.REACT_APP_CHAT_URL
 
 const socket = io(CHAT_URL, {
     autoConnect: false //if not set to false, will connect to server every time component reloads
