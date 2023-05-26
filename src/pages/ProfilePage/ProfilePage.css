@@ -11,7 +11,7 @@
 
 .userDiv {
     display: flex;
-    height: 320px;
+    height: 160px;
 }
 
 .userPictureDiv {
@@ -36,6 +36,9 @@
 
 .userInfoTextDiv {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: left;
 }
 

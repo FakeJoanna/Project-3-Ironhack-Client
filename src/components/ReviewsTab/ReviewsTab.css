@@ -1,5 +1,12 @@
+.reviewWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
 .reviewDiv {
-    height: 140px;
+    flex: 1;
+    height: 80px;
     display: flex;
 }
 
@@ -11,31 +18,23 @@
 }
 
 .reviewerDiv > div {
-    height: 50%;
+    height: 70%;
     width: 100%;
 }
 
 .reviewerDiv img {
     height: 100%;
     border-radius: 50%;
-    margin-bottom: 10%;
 }
 
-.usernameStarsDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.reviewerDiv p {
+.reviewDiv p {
     margin: 0;
 }
 
 .reviewTextDiv {
-    width: 30%;
-    text-align: left;
-    padding: 10px 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .reviewImagesDiv {
@@ -67,11 +66,13 @@
 }
 
 .reviewDivider {
-    margin: 0;
-    width: 95%;
-    margin-left: 2.5%;
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    top: 100%;
+    background: linear-gradient(90deg, transparent, #c2634b, transparent)
 }
 
-.reviewDivider:last-child {
+.hidden {
     display: none;
 }

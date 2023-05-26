@@ -110,7 +110,7 @@ function ProfilePage() {
 
               <div className="userInfoTextDiv">
                 <h2>{userInfo.name}</h2>
-                <p>{userInfo.review.length === 0 ? "No reviews yet" : userInfo.review.length}</p> 
+                <p>{userInfo.review.length === 0 ? "No reviews yet" : userInfo.review.length + " reviews"}</p> 
               </div>
               
               <div className="userButtonsDivWrapper">
@@ -169,14 +169,14 @@ function ProfilePage() {
             
             :
   
-            <ReviewsTab />
+            <ReviewsTab reviews={userInfo.review}/>
             
             }
           </div>
           
           :
 
-          <Loading />
+          <Loading/>
           
           }
         </div>
