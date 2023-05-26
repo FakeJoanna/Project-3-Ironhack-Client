@@ -1,7 +1,7 @@
 .chatPageDiv {
     display: flex;
     justify-content: center;
-    min-height: 91vh;
+    min-height: 92vh;
 }
 
 .chatPageWrapper {
@@ -70,7 +70,7 @@
 
 @media only screen and (max-width: 768px) {
     .chatPageDiv {
-        min-height: 94vh;
+        min-height: 95vh;
     }
     .chatSideBar {
         display: none;

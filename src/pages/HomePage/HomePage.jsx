@@ -32,6 +32,21 @@ function HomePage() {
 
       </div>
 
+      <div className="mobileOverlay">
+        <div className="mobileOverlay-text">
+          {language === "EN" && <span>Give a second life to your clothes</span>}
+          {language === "FR" && <span>Donner une seconde vie à vos vêtements</span>}
+          {language === "ES" && <span>Dale una segunda vida a tu ropa</span>}
+        </div>
+        <Link to="/new-product" className="mobileOverlay-link">
+          {language === "EN" && <button className="mobileButtonOverlay">Sell now</button>}
+          {language === "FR" && <button className="mobileButtonOverlay">Sell now</button>}
+          {language === "ES" && <button className="mobileButtonOverlay">Sell now</button>}
+        </Link>
+      </div>
+
+
+
 
       <div className="homePageSecondSectionWrapper">
 

@@ -5,8 +5,8 @@
 }
 
 .productDetailsWrapper {
-  width: 80%;
   display: flex;
+  width: 80%;
   margin: 20px;
 }
 
@@ -23,7 +23,7 @@
   width: 502px;
   border: none;
   padding: 5px;
-  background-color: #C2634B;
+  background-color: rgb(28 179 196);;
   color: white;
   border-radius: 5px;
 }
@@ -47,12 +47,19 @@
   text-align: left;
 }
 
+.DetailSidebar.showOfferPopup {
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity to make it darker or lighter */
+}
+
 @media only screen and (min-width: 1920px) {
   .productDetailsWrapper, .youMightAlsoLikeWrapper {
-      width: 50%;
+    width: 50%;
   }
 }
 
-.DetailSidebar.showOfferPopup {
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity to make it darker or lighter */
+@media only screen and (max-width: 1200px) {
+  .productDetailsWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
 }

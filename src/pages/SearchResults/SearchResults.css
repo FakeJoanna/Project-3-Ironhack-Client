@@ -1,13 +1,42 @@
 .searchResultsPageDiv {
     display: flex;
     justify-content: center;
-    min-height: 91vh;
+    min-height: 92vh;
 }
 
 .searchResultsWrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    row-gap: 20px;
     width: 80%;
     margin: 20px;
+}
+
+@media only screen and (min-width: 1920px) {
+    .searchResultsWrapper {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .searchResultsWrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .searchResultsWrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .searchResultsPageDiv {
+        min-height: 95vh;
+    }
+    .searchResultsWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 }

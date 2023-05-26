@@ -31,17 +31,23 @@ function UnderNavBar() {
           {language === "ES" && <p>Mujeres</p>}
         </Link>
 
+        <Link to="/products/kids">
        { language === 'EN' && <p>Kids</p>}
        { language === 'FR' && <p>Enfants</p>}
        { language === 'ES' && <p>Niños</p>}
-       
-       { language === 'EN' && <p>Home</p>}
-       { language === 'FR' && <p>Maison</p>}
-       { language === 'ES' && <p>Hogar</p>}
-       
-        {language === "EN" && <p>Accesories</p>}
-        {language === "FR" && <p>Accessoire</p>}
-        {language === "ES" && <p>Accesorios</p>}
+       </Link>
+
+       <Link to="/products/accesories">
+       { language === 'EN' && <p>Accesories</p>}
+       { language === 'FR' && <p>Accessoire</p>}
+       { language === 'ES' && <p>Accesorios</p>}
+       </Link>
+
+       <Link to="/products/home">
+        {language === "EN" && <p>Home</p>}
+        {language === "FR" && <p>Maison</p>}
+        {language === "ES" && <p>Hogar</p>}
+       </Link>
 
      </div>
 

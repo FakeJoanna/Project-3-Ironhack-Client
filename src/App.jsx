@@ -21,6 +21,9 @@ import Checkout from "./pages/Checkout/Checkout";
 
 import WomanProducts from "./pages/WomanProducts/WomanProducts";
 import MenProducts from "./pages/MenProducts/MenProducts";
+import KidsProducts from "./pages/KidsProducts/KidsProducts";
+import AccesoriesProducts from "./pages/AccesoriesProducts/AccesoriesProducts";
+import HomeProducts from "./pages/HomeProducts/HomeProducts";
 
 import FavoriteProducts from "./pages/FavoriteProducts/FavoriteProducts";
 
@@ -85,6 +88,9 @@ function App() {
 
         <Route path="/products/women" element={<WomanProducts />} />
         <Route path="/products/men" element={<MenProducts />} />
+        <Route path="/products/kids" element={<KidsProducts  />} />
+        <Route path="/products/accesories" element={<AccesoriesProducts />} />
+        <Route path="/products/home" element={<HomeProducts />} />
 
 
         <Route path="/favorite" element={<FavoriteProducts />} />

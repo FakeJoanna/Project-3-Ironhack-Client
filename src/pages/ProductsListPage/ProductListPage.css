@@ -1,7 +1,7 @@
 .productsListDiv {
     display: flex;
     justify-content: center;
-    min-height: 91vh;
+    min-height: 92vh;
 }
 
 .productsListWrapper {
@@ -16,12 +16,34 @@
 .productsListGridDiv {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    row-gap: 10px;
-    margin: 0 -20px;
 }
 
 @media only screen and (min-width: 1920px) {
     .productsListWrapper {
         width: 50%;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .productsListGridDiv {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .productsListGridDiv {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .productsListDiv {
+        min-height: 95vh;
+    }
+    .productsListGridDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 }

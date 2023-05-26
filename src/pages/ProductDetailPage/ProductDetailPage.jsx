@@ -21,7 +21,6 @@ function ProductDetailPage() {
 
     const [product, setProduct] = useState(null)
     const [userInfo, setUserInfo] = useState(null) //to fetch review numbers and profile picture img
-  
 
     useEffect(() => {
         axios.get(`${API_URL}/api/products/${productId}`)
@@ -45,6 +44,7 @@ function ProductDetailPage() {
                 <>
                     <div className="productDetailsMainDiv">
                         <Carousel images={product.img} />
+
                         {user && userInfo._id === user._id
                         
                         ?
@@ -59,6 +59,7 @@ function ProductDetailPage() {
 
                         <></>
                         }
+
                     </div>
                     
                     <DetailsSidebar product={product} ownerUser={userInfo}/>
@@ -88,6 +89,7 @@ function ProductDetailPage() {
                 </div>
                 <YouMightAlsoLike />
             </div>
+            
         </div>
         
     )

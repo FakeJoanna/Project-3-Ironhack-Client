@@ -115,6 +115,7 @@ function ProfilePage() {
                 {language === "EN" && <p>{userInfo.review.length === 0 ? "No reviews yet" : userInfo.review.length + " reviews"}</p> }
                 {language === "FR" && <p>{userInfo.review.length === 0 ? "Pas de commentaires" : userInfo.review.length + " avis"}</p> }
                 {language === "ES" && <p>{userInfo.review.length === 0 ? "Ninguna reseña por ahora" : userInfo.review.length + " reseñas"}</p> }
+                {userInfo.followers && <p>{userInfo.followers + " followers"}</p>}
               </div>
               
               <div className="userButtonsDivWrapper">

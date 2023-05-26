@@ -1,7 +1,7 @@
 import "./DetailsSidebar.css"
 
+import { useContext, useEffect, useState, useRef } from "react"
 import { useParams, Link } from "react-router-dom"
-import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../context/auth.context"
 import { CartContext } from "../../context/cart.context"
 import { LanguageContext } from "../../context/lang.context"
@@ -19,7 +19,8 @@ function DetailsSidebar({product, ownerUser}) {
     const { language } = useContext(LanguageContext)
 
     const [isLiked, setIsLiked] = useState(false)
-    const [showOfferPopup, setShowOfferPopup] = useState(false);
+    const [showOfferPopup, setShowOfferPopup] = useState(false)
+    const dimmerDivRef = useRef(null)
 
     useEffect(() => {
         if(!user) {
@@ -52,6 +53,11 @@ function DetailsSidebar({product, ownerUser}) {
             setIsLiked(false)
         })
         .catch(err => console.log(err))
+    }
+
+    function showOffer() {
+        dimmerDivRef.current.classList.add("dimming")
+        setShowOfferPopup(true)
     }
 
     return(
@@ -139,9 +145,9 @@ function DetailsSidebar({product, ownerUser}) {
                     { language === "ES" && <button className="sidebarButton">Perfil</button>}
                 </Link>
                 
-                { language === "EN"&& <button className="sidebarButtonGreen" onClick={() => setShowOfferPopup(true)}>Make an Offer</button>}
-                { language === "FR"&& <button className="sidebarButtonGreen" onClick={() => setShowOfferPopup(true)}>Faire une offre</button>}
-                { language === "ES" && <button className="sidebarButtonGreen" onClick={() => setShowOfferPopup(true)}>Hacer Oferta</button>}
+                { language === "EN"&& <button className="sidebarButtonGreen" onClick={showOffer}>Make an Offer</button>}
+                { language === "FR"&& <button className="sidebarButtonGreen" onClick={showOffer}>Faire une offre</button>}
+                { language === "ES" && <button className="sidebarButtonGreen" onClick={showOffer}>Hacer Oferta</button>}
                 
                 { language === "EN" && <button className="sidebarButtonGreen" onClick={() => addToCart(productId)}>Add to cart</button>}
                 { language === "FR" && <button className="sidebarButtonGreen" onClick={() => addToCart(productId)}>Ajouter au panier</button>}
@@ -154,9 +160,10 @@ function DetailsSidebar({product, ownerUser}) {
 
             {showOfferPopup && (
                 
-                <Offer productOwner={product.user[0]} />
+                <Offer dimmerDivRef={dimmerDivRef} setShowOfferPopup={setShowOfferPopup} productOwner={product.user[0]} />
                 
             )}
+            <div ref={dimmerDivRef} className="dimmerDiv"></div>
         </div>
     )
 }

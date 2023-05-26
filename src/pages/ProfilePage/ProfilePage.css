@@ -1,7 +1,7 @@
 .profilePageDiv {
     display: flex;
     justify-content: center;
-    min-height: 91vh;
+    min-height: 92vh;
 }
 
 .profilePageWrapper {
@@ -15,7 +15,7 @@
 }
 
 .userPictureDiv {
-    flex-basis: 10%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,7 +69,7 @@
     width: 100%;
     border: none;
     padding: 5px;
-    border: 2px solid rgb(239, 209, 170);
+    border: 2px solid rgb(28 179 196);
     background-color: white;
     border-radius: 5px;
 }
@@ -96,7 +96,7 @@
 }
 
 .activeTabButton {
-    border-color: #C2634B;
+    border-color: rgb(28 179 196);;
 }
 
 .profilePageDivider {

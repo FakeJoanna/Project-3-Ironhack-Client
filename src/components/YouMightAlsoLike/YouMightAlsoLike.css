@@ -3,3 +3,33 @@
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
 }
+
+@media only screen and (min-width: 1920px) {
+    .youMightAlsoLike {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .youMightAlsoLike {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .youMightAlsoLike {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .youMightAlsoLike {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+

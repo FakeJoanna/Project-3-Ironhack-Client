@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 91vh;
+  min-height: 92vh;
 }
 
 .background-image {
@@ -39,6 +39,33 @@
 .overlay-link {
   width: 100%;
   margin: 0;
+}
+
+.mobileOverlay {
+  display: none;
+  width: 100%;
+  padding: 10px;
+}
+
+.mobileOverlay-text {
+  font-size: 30px;
+  font-weight: 500;
+  font-family: "roboto";
+}
+
+.mobileOverlay-link {
+  width: 100%;
+  margin: 0;
+}
+
+.mobileButtonOverlay {
+  width: 80%;
+  border: none;
+  margin-top: 15px;
+  padding: 5px 10px;
+  color: #FFF;
+  font-size: 20px;
+  background-color: #27cedd;
 }
 
 .buttonOverlay {
@@ -94,7 +121,6 @@
 }
 
 @media only screen and (max-width: 990px) {
-  
   .overlay {
     width: 30%;
   }
@@ -109,7 +135,10 @@
 
 @media only screen and (max-width: 768px) {
   .overlay {
-    width: 250px;
+    display: none;
+  }
+  .mobileOverlay {
+    display: block;
   }
   .background-image {
     height: 400px;

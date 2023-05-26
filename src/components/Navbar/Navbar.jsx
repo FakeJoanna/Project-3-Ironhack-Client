@@ -305,7 +305,7 @@ function Navbar() {
             </button>
 
             <div className="languageDropdownDiv" onClick={toggleLanguage}>
-                <p>{language}</p>
+                <p>{language}&#9661;</p>
                {langDropDownOpen && (
                 <div className="language-dropdown-content">
                 {language === "FR" ? <p onClick={() => setLanguage("EN")}>EN</p> : <p onClick={() => setLanguage("FR")}>FR</p>}

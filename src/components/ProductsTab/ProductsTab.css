@@ -1,6 +1,6 @@
 .productsTabDiv {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .noProductsDiv {
@@ -18,4 +18,24 @@
 
 .noProductsDiv > p {
     font-size: 1.5rem;
+}
+
+
+@media only screen and (max-width: 1350px) {
+    .productsTabDiv {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .productsTabDiv {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .productsTabDiv {
+        display: flex;
+        flex-direction: column;
+    }
 }

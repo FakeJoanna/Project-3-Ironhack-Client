@@ -1,7 +1,7 @@
 .editProfilePageDiv {
     display: flex;
     justify-content: center;
-    min-height: 91vh;
+    min-height: 92vh;
 }
   
 .editProfilePageWrapper {
@@ -62,7 +62,7 @@
 
 @media only screen and (max-width: 768px) {
     .editProfilePageDiv {
-        min-height: 94vh;
+        min-height: 95vh;
     }   
 }
 

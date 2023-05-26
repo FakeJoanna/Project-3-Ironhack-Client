@@ -1,6 +1,6 @@
 import "./MobileNavbarMenu.css"
 
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { AuthContext } from "../../context/auth.context"
 import { LanguageContext } from "../../context/lang.context" 
@@ -11,6 +11,8 @@ function MobileNavbarMenu() {
     const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
     const { language, setLanguage } = useContext(LanguageContext)
 
+    const [query, setQuery] = useState(null)
+
     function goToProfile() {
         navigate(`/member/${user._id}`)
     }
@@ -19,9 +21,30 @@ function MobileNavbarMenu() {
         navigate("/message")
     }
 
+    function storeQuery(e) {
+        setQuery(e.target.value)
+    }
+
+    function handleSearch(e) {
+        e.preventDefault()
+        if(query === null) {
+            return
+        }
+        navigate(`/search?q=${query}`)
+    }
+
     return(
         
         <div className="mobileNavbarMenuDiv">
+
+            <div className="mobileMenuRow">
+
+                <form className="mobileMenuSearchBar" onSubmit={handleSearch}>
+                    <input type="text" className="mobileMenuSearchInput" placeholder="Search for products" onChange={storeQuery} /> 
+                </form>
+            </div>
+
+            <hr />  
 
             {isLoggedIn &&
             <>

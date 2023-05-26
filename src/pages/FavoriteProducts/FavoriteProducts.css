@@ -1,7 +1,7 @@
 .favouritesPageDiv {
     display: flex;
     justify-content: center;
-    min-height: 91vh;
+    min-height: 92vh;
 }
 
 .favouritesWrapper {
