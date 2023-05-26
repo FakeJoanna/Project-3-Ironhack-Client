@@ -33,7 +33,7 @@ function WomanProducts() {
 
                 {language === "EN" && <h1>For Women</h1>}
                 {language === "FR" && <h1>Pour Femmes</h1>}
-                {language === "ES" && <h1>For Women</h1>}
+                {language === "ES" && <h1>Para Mujeres</h1>}
                 <div className="womenProductsDiv"> 
                     {products.map(product => {
                         return (

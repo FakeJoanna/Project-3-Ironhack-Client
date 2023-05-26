@@ -16,17 +16,32 @@
 }
 
 
+@media only screen and (min-width: 1920px) {
+    .womenProductsDiv {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .womenProductsDiv {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .womenProductsDiv {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media only screen and (max-width: 768px) {
+    .womenProductsPageDiv {
+        min-height: 95vh;
+    }
     .womenProductsDiv {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 10px;
-    }
-}
-
-@media only screen and (min-width: 1920px) {
-    .womenProductsWrapper {
-        width: 50%;
     }
 }

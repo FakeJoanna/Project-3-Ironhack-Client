@@ -111,4 +111,7 @@
   .overlay {
     width: 250px;
   }
+  .background-image {
+    height: 400px;
+  }
 }

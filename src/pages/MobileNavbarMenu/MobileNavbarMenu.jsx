@@ -16,7 +16,7 @@ function MobileNavbarMenu() {
     }
 
     function goToMesages() {
-        navigate("/messages")
+        navigate("/message")
     }
 
     return(
