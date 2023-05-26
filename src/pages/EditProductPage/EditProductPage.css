@@ -78,12 +78,6 @@
     color: #09aeb7;
 }
 
-@media only screen and (min-width: 1920px) {
-    .editProductForm {
-        width: 50%;
-    }
-}
-
 .deleteProductButton {
     width: 100%;
     font-family: "Open Sans",sans-serif;
@@ -96,4 +90,10 @@
     border: 1px solid #b70909;
     color: #fff;
     transition: 0.3s ease;
+}
+
+@media only screen and (min-width: 1920px) {
+    .editProductForm {
+        width: 50%;
+    }
 }

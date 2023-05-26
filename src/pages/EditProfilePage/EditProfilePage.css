@@ -59,3 +59,49 @@
 .success-message {
     color: rgb(16, 83, 16);
 } 
+
+@media only screen and (max-width: 768px) {
+    .editProfilePageDiv {
+        min-height: 94vh;
+    }   
+}
+
+
+@media only screen and (max-width: 992px) {
+    .changeProfilePicDiv {
+        width: 70%;
+    }
+    .changePasswordForm > div {
+        display: flex;
+        flex-direction: column;
+    }
+    .changePasswordForm input {
+        margin-top: 20px;
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .editProfilePageWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .changeProfilePicDiv {
+        height: 250px;
+        margin-bottom: 20px;
+    }
+    .changePasswordDiv {
+        width: 70%;
+    }
+    .changePasswordForm {
+        height: 65%;
+    }
+}
+
+
+@media only screen and (min-width: 1920px) {
+    .editProfilePageWrapper {
+        width: 50%;
+    }
+} 

@@ -100,3 +100,9 @@
 .uploadIcon {
     height: 50%;
 }
+
+@media only screen and (max-width: 768px) {
+    .imageInputDiv {
+        height: 120px;
+    }
+}

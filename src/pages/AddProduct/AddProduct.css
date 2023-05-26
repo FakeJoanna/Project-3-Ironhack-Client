@@ -77,14 +77,15 @@
     color: #09aeb7;
 }
 
-@media only screen and (min-width: 1920px) {
-    .addProductForm {
-        width: 50%;
-    }
-}
 
 @media only screen and (max-width: 768px) {
     .addProductForm {
         width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .addProductForm {
+        width: 50%;
     }
 }

@@ -70,13 +70,13 @@ function ProfilePictureInput({ changePFP, user }) {
 
     return(
         <div className="profilePictureInputDiv">
-                <canvas className="profilePictureCanvas" ref={canvasRef}></canvas>
-                <img ref={imageRef} className="currentPFP" src={user.profilePicture} alt="" />
-                <button className="editPFPButton" onClick={handleClick}></button>
-                <input id="fileInput" className="hiddenImageInput" type="file" onChange={handleFileInput}/>
-                {language === "EN" && <p ref={successMessageRef} className="changePFP-success-message">Profile picture changed.</p>}
-                {language === "FR" && <p ref={successMessageRef} className="changePFP-success-message">Photo de profile changé.</p>}
-                {language === "ES" && <p ref={successMessageRef} className="changePFP-success-message">Foto de usuario cambiada.</p>}
+            <canvas className="profilePictureCanvas" ref={canvasRef}></canvas>
+            <img ref={imageRef} className="currentPFP" src={user.profilePicture} alt="" />
+            <button className="editPFPButton" onClick={handleClick}></button>
+            <input id="fileInput" className="hiddenImageInput" type="file" onChange={handleFileInput}/>
+            {language === "EN" && <p ref={successMessageRef} className="changePFP-success-message">Profile picture changed.</p>}
+            {language === "FR" && <p ref={successMessageRef} className="changePFP-success-message">Photo de profile changé.</p>}
+            {language === "ES" && <p ref={successMessageRef} className="changePFP-success-message">Foto de usuario cambiada.</p>}
         </div>
     )
 }

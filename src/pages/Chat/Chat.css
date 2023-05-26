@@ -68,6 +68,21 @@
     justify-content: center;
 }
 
+@media only screen and (max-width: 768px) {
+    .chatPageDiv {
+        min-height: 94vh;
+    }
+    .chatSideBar {
+        display: none;
+    } 
+}
+
+@media only screen and (max-width: 992px) {
+    .chatPageWrapper {
+        width: 100%;
+    }   
+}
+
 @media only screen and (min-width: 1920px) {
     .chatPageWrapper {
         width: 50%;

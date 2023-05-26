@@ -12,8 +12,7 @@
 }
 
 .deleteChatIcon {
-    align-self: flex-end;
-    height: 100%;
+    height: 35px;
     padding: 5px 10px;
     cursor: pointer;
 }
@@ -156,4 +155,10 @@
     margin-right: 50px;
     border: none;
     border-radius: 3px;
+}
+
+@media only screen and (max-width: 768px) {
+    .offerMessageWrapper {
+        width: 48%;
+    }
 }

@@ -238,7 +238,7 @@
     text-decoration: underline;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1440px) {
     .wiperDiv, .interactiveCheckoutButtonDiv {
         display: none;
     }
@@ -251,7 +251,7 @@
     .paymentTerminal {
         position: static;
         z-index: 0;
-        width: 90%;
+        width: 50%;
         margin-top: 30px;
         padding: 0;
     }
@@ -263,5 +263,11 @@
     }
     .checkoutProductImagesDiv {
         height: 40%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .paymentTerminal {
+        width: 90%;
     }
 }

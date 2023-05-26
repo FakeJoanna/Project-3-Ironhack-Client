@@ -41,23 +41,6 @@
   margin: 0;
 }
 
-@media only screen and (max-width: 1200px) {
-  
-  .overlay-text {
-    font-size: 20px;
-  }
-  .buttonOverlay span {
-    font-size: 10px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .overlay {
-    width: 50%;
-  }
-}
-
-
 .buttonOverlay {
   width: 80%;
   border: none;
@@ -94,8 +77,38 @@
   text-decoration: none;
 }
 
-.buttonSeeMore button{
+.buttonSeeMore button {
   border: none;
   padding: 0 15px;
   color: #999999;
+}
+
+@media only screen and (max-width: 1200px) {
+  
+  .overlay-text {
+    font-size: 20px;
+  }
+  .buttonOverlay {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  
+  .overlay {
+    width: 30%;
+  }
+
+  .overlay-text {
+    font-size: 18px;
+  }
+  .buttonOverlay {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .overlay {
+    width: 250px;
+  }
 }
