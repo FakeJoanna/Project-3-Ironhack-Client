@@ -9,7 +9,6 @@ const API_URL =  process.env.REACT_APP_API_URL;
 
 function Checkout() {
     
-    const storedToken = localStorage.getItem("authToken")
     const navigate = useNavigate()
     const { productId } = useParams()
     const [product, setProduct] = useState(null)
@@ -20,7 +19,7 @@ function Checkout() {
             return
         }
 
-        axios.get(`${API_URL}/api/checkout/${productId}`,  { headers: { Authorization: `Bearer ${storedToken}` } })
+        axios.get(`${API_URL}/api/checkout/${productId}`)
         .then((response) => {
             setProduct(response.data)
         })

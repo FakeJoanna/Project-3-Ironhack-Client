@@ -56,27 +56,18 @@
     background-color: lightblue;
 }
 
-.offerMessageText {
-    display: flex;
-    flex-direction: column;
-    background-color: lightcoral !important;
-}
-
-.offerTitle {
-    margin: 10px 0 5px;
-}
-
-.offerMessageTime {
-    position: relative;
-    top: 130px;
-    color: grey;
-}
-
 .messageWrapper {
     max-width: 40%;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+}
+
+.message {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
 }
 
 .messageText {
@@ -86,9 +77,24 @@
     overflow-wrap: break-word;
 }
 
-.messageTime {
-    position: relative;
-    top: 35px;
+.yourMessageTime {
+    position: absolute;
+    top: 90%;
+    left: -40px;
+    color: grey;
+}
+
+.yourOfferMessageTime {
+    position: absolute;
+    top: 100%;
+    left: -40px;
+    color: grey;
+}
+
+.otherUserTime {
+    position: absolute;
+    top: 99%;
+    left: 100%;
     color: grey;
 }
 
@@ -96,26 +102,41 @@
     margin: 0 10px;
     height: 30px;
     border-radius: 50%;
+    align-self: start;
 }
 
 .offerMessageWrapper {
-    max-width: 40%;
+    width: 40%;
     margin-bottom: 20px;
 }
 
 .offerMessage {
+    position: relative;
     display: flex;
     align-items: center;
     margin-bottom: 2px;
 }
 
+.offerMessageText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightcoral !important;
+}
+
+.offerTitle {
+    margin: 10px 0;
+}
+
 .offerImage {
-    height: 150px;
+    aspect-ratio: 1;
+    width: 100%;
 }
 
 .chatOfferButtons {
     display: flex;
-    padding: 0 40px 0 50px;
+    justify-content: center;
+    margin-left: 50px;
 }
 
 .chatOfferButtons > button {
@@ -132,7 +153,7 @@
 
 .checkoutMessageWrapper > button {
     width: 40%;
-    margin: 0 10px;
+    margin-right: 50px;
     border: none;
     border-radius: 3px;
 }

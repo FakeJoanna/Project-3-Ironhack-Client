@@ -27,18 +27,15 @@ function ChatBox({ singleChat })  {
     const { offer, setOffer } = useContext(ChatIDsContext)
 
     //storing other users' profile picture in a variable for display in the chat
-    let ownPFP
     let otherUserPFP
     let otherUserName
     if(singleChat.users[0]._id === user._id) {
-        ownPFP = singleChat.users[0].profilePicture
         otherUserPFP = singleChat.users[1].profilePicture
         otherUserName = singleChat.users[1].name
     }
     else {
         otherUserPFP = singleChat.users[0].profilePicture
         otherUserName = singleChat.users[0].name
-        ownPFP = singleChat.users[1].profilePicture
     }
     
     //offer message useffect
@@ -60,10 +57,11 @@ function ChatBox({ singleChat })  {
             }
             setAllMessages(prevState => [...prevState, offerData])
             socket.emit("send_message", offerData)
+
             const messageToStore = {
                 content: offerMessage,
                 sender: user._id,
-                isOffer: offer.productId,
+                isOffer: response.data,
             }
             axios.post(`${API_URL}/chat/append-message`, {roomID: singleChat._id, messageToStore: messageToStore})
         })
@@ -74,7 +72,6 @@ function ChatBox({ singleChat })  {
     //This useEffect adds an event listener for the enter key to send messages and joins a socket room whose ID is determined by the MongoDB Room document - this makes each room unique and avoids user collisions
     useEffect(() => {
         //we connect to the client, we join a room, and we set up an event listener to receive messages
-        console.log("the useEffect for the chatbox is firing, and the socket connection should set up")
 
         socket.connect()
         socket.emit("join_room", singleChat._id)
@@ -223,11 +220,10 @@ function ChatBox({ singleChat })  {
             </div>
             <div className="messagesDiv" ref={chatBoxRef}>
                 {allMessages.map((message, index) => {
-             
                     const formattedTime = new Intl.DateTimeFormat(undefined, {
                         hour: '2-digit',
                         minute: '2-digit'
-                    }).format(new Date(message.timestamp))
+                    }).format(new Date(message.timestamp)).toString().substring(0, 5)
                     
                     return (
                         <div key={index} className={message.sender === user._id ? "singleMessageDiv yourOwn" : "singleMessageDiv otherUser"}>
@@ -243,12 +239,12 @@ function ChatBox({ singleChat })  {
 
                             <div className="offerMessageWrapper">
                                 <div className="offerMessage">
-                                    <p className="offerMessageTime">{formattedTime}</p>
+                                    <p className="yourOfferMessageTime">{formattedTime}</p>
                                     <p className="messageText offerMessageText">{message.content}
                                         <span className="offerTitle">{message.isOffer.title}</span>
                                         <img className="offerImage" src={message.isOffer.img[0]} alt="" />
                                     </p>
-                                    <img className="messagePFP" src={otherUserPFP} alt="" />
+                                    <img className="messagePFP" src={user.profilePicture} alt="" />
                                 </div>
                             </div>                             
 
@@ -261,7 +257,7 @@ function ChatBox({ singleChat })  {
                                         <span className="offerTitle">{message.isOffer.title}</span>
                                         <img className="offerImage" src={message.isOffer.img[0]} alt="" />
                                     </p>
-                                    <p className="offerMessageTime">{formattedTime}</p>
+                                    <p className="otherUserTime">{formattedTime}</p>
                                 </div>
                                 <div className="chatOfferButtons">
                                     <button onClick={() => acceptOffer(index)}>Accept</button>
@@ -278,10 +274,10 @@ function ChatBox({ singleChat })  {
                             ?
 
                             <div className="checkoutMessageWrapper">
-                                <div className="offerMessage">
-                                    <p className="messageTime">{formattedTime}</p>
+                                <div className="message">
+                                    <p className="yourMessageTime">{formattedTime}</p>
                                     <p className="messageText">{message.content}</p>
-                                    <img className="messagePFP" src={ownPFP} alt="" />
+                                    <img className="messagePFP" src={user.profilePicture} alt="" />
                                 </div>
                                 {message.hasCheckoutButton && <button onClick={() => chatCheckout(message.hasCheckoutButton)}>Checkout</button>}
                             </div>                               
@@ -289,9 +285,11 @@ function ChatBox({ singleChat })  {
                             :
 
                             <div className="messageWrapper">
-                                <img className="messagePFP" src={otherUserPFP} alt="" />
-                                <p className="messageText">{message.content}</p>
-                                <p className="messageTime">{formattedTime}</p>
+                                <div className="message">
+                                    <img className="messagePFP" src={otherUserPFP} alt="" />
+                                    <p className="messageText">{message.content}</p>
+                                    <p className="otherUserTime">{formattedTime}</p>
+                                </div>
                             </div>}
                         </>
 

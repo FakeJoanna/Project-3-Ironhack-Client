@@ -75,7 +75,7 @@ function Chat() {
                             const otherUser = chat.users.find(userFromArray => userFromArray._id !== user._id)
                             
                             return(
-                                <div className="sideBarChatDiv" onClick={() => changeChat(chat)}>
+                                <div key={chat._id} className="sideBarChatDiv" onClick={() => changeChat(chat)}>
                                     <img src={otherUser.profilePicture} alt="" />
                                     <p>{otherUser.name}</p>
                                 </div>
@@ -84,7 +84,7 @@ function Chat() {
 
                         :
 
-                        <p className="noChatsText">You have no chats</p>
+                        <p className="noChatsText">You have no chats.</p>
 
                         }
                     </div>
