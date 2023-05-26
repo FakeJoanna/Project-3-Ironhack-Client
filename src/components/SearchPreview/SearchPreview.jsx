@@ -17,9 +17,6 @@ function SearchPreview({ data }) {
               <div className="previewTitleDiv">
                 {user.name}
               </div>
-              <div className="previewDescriptionDiv">
-                {/* Nothing to display here yet */}
-              </div>
             </div>
             <hr className="previewDivDivider"/>
           </Link>
