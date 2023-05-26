@@ -1,15 +1,15 @@
 import "./MobileNavbarMenu.css"
 
 import { useContext } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { AuthContext } from "../../context/auth.context"
 import { LanguageContext } from "../../context/lang.context" 
 
 function MobileNavbarMenu() {
 
     const navigate = useNavigate()
-    const { user, logOutUser } = useContext(AuthContext)
-    const { language } = useContext(LanguageContext)
+    const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
+    const { language, setLanguage } = useContext(LanguageContext)
 
     function goToProfile() {
         navigate(`/member/${user._id}`)
@@ -22,36 +22,110 @@ function MobileNavbarMenu() {
     return(
         
         <div className="mobileNavbarMenuDiv">
-            {user &&
+
+            {isLoggedIn &&
+            <>
                 <div className="mobileMenuRow" onClick={goToProfile}>
                     <div className="mobileMenuImageDiv">
                         <img className="mobileMenuProfilePic" src={user.profilePicture} alt="" />
                     </div>
                     <p>{user.name}</p>
                 </div>
+
+                <hr />
+
+                <div className="mobileMenuRow">
+                    <div className="mobileMenuImageDiv">
+                        <img className="mobileMenuFavouritesIcon" src="https://i.imgur.com/kvFcV1f.png" alt="" />
+                    </div>
+                    {language === "EN" && <p>Favourites</p>}
+                    {language === "FR" && <p>Favoris</p>}
+                    {language === "ES" && <p>Favoritos</p>}
+                </div>
+
+                <hr />
+
+                <div className="mobileMenuRow" onClick={goToMesages}>
+                    <div className="mobileMenuImageDiv">
+                        <img className="mobileMenuMessagesIcon" src="https://i.imgur.com/qeJCkCy.png" alt="" />
+                    </div>
+                    {language === "EN" && <p>Messages</p>}
+                    {language === "FR" && <p>Méssages</p>}
+                    {language === "ES" && <p>Mensajes</p>}
+                </div>
+
+                <hr />
+
+                <div className="mobileMenuRow">
+                    {language === "EN" && <Link to="/new-product">
+                        <button className="sellNowMobileButton">Sell now</button>
+                    </Link>}
+                    {language === "FR" && <Link to="/new-product">
+                        <button className="sellNowMobileButton">Vendre</button>
+                    </Link>}
+                    {language === "ES" && <Link to="/new-product">
+                        <button className="sellNowMobileButton">Vender</button>
+                    </Link>}
+                </div>
+
+                <hr />
+
+                <div className="languageButtonsRow">
+                    <p onClick={() => setLanguage("EN")}>EN</p>
+                    <p onClick={() => setLanguage("FR")}>FR</p>
+                    <p onClick={() => setLanguage("ES")}>ES</p>
+                </div>
+
+                <hr />
+
+                <div className="mobileMenuRow">
+                    {language === "EN" && <button className="mobileMenuLogOut" onClick={logOutUser}>Logout</button>}
+                    {language === "FR" && <button className="mobileMenuLogOut" onClick={logOutUser}>Déconnexion</button>}
+                    {language === "ES" && <button className="mobileMenuLogOut" onClick={logOutUser}>Cerrar sesión</button>}
+                </div>
+            </>
             }
-            <hr />
-            <div className="mobileMenuRow">
-                <div className="mobileMenuImageDiv">
-                    <img className="mobileMenuFavouritesIcon" src="https://i.imgur.com/kvFcV1f.png" alt="" />
+
+            {!isLoggedIn && (
+            <>
+                <div className="mobileMenuRow">
+                    {language === "EN" && <Link to="/signup">
+                        <button className="mobileMenuSignUp">Sign Up</button>
+                    </Link>}
+                    {language === "FR" && <Link to="/signup">
+                        <button className="mobileMenuSignUp">Crée un compte</button>
+                    </Link>}
+                    {language === "ES" && <Link to="/signup">
+                        <button className="mobileMenuSignUp">Registrarse</button>
+                    </Link>}
                 </div>
-                {language === "EN" && <p>Favourites</p>}
-                {language === "FR" && <p>Favoris</p>}
-                {language === "ES" && <p>Favoritos</p>}
-            </div>
-            <hr />
-            <div className="mobileMenuRow" onClick={goToMesages}>
-                <div className="mobileMenuImageDiv">
-                    <img className="mobileMenuMessagesIcon" src="https://i.imgur.com/qeJCkCy.png" alt="" />
+
+                <hr />
+
+                <div className="mobileMenuRow">
+                    {language === "EN" && <Link to="/login">
+                        <button className="mobileMenuLogin">Login</button>
+                    </Link>}
+                    {language === "FR" && <Link to="/login">
+                        <button className="mobileMenuLogin">Connexion</button>
+                    </Link>}
+                    {language === "ES" && <Link to="/login">
+                        <button className="mobileMenuLogin">Iniciar sesión</button>
+                    </Link>}
                 </div>
-                {language === "EN" && <p>Messages</p>}
-                {language === "EN" && <p>Méssages</p>}
-                {language === "EN" && <p>Mensajes</p>}
-            </div>
-            <hr />
-            {language === "EN" && <button className="mobileMenuButton" onClick={logOutUser}>Logout</button>}
-            {language === "EN" && <button className="mobileMenuButton" onClick={logOutUser}>Déconnexion</button>}
-            {language === "ES" && <button className="mobileMenuButton" onClick={logOutUser}>Cerrar sesión</button>}
+            
+                <hr />
+                
+                <div className="languageButtonsRow">
+                    <p onClick={() => setLanguage("EN")}>EN</p>
+                    <p onClick={() => setLanguage("FR")}>FR</p>
+                    <p onClick={() => setLanguage("ES")}>ES</p>
+                </div>
+
+                
+            </>
+            )}
+
         </div>
     )
 }

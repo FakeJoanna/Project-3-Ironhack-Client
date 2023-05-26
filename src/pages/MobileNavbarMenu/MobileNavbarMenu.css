@@ -6,7 +6,7 @@
     background-color: white;
 }
 
-.mobileNavbarMenuDiv > hr {
+.mobileNavbarMenuDiv hr {
     margin: 0;
 }
 
@@ -14,7 +14,14 @@
     display: flex;
     align-items: center;
     height: 10%;
-    cursor: pointer;
+}
+
+.mobileMenuRow > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 15px;
+    text-decoration: none;
 }
 
 .mobileMenuRow > p {
@@ -26,27 +33,63 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 20%;
+    margin-right: 30px;
 }
 
 .mobileMenuProfilePic {
-    height: 80%;
+    height: 65%;
     border-radius: 50%;
 }
 
 .mobileMenuFavouritesIcon {
-    height: 75%;
+    height: 55%;
 }
 
 .mobileMenuMessagesIcon {
-    height: 65%;
+    height: 45%;
 }
 
-.mobileMenuButton {
-    margin: 20px 0;
-    width: 30%;
-    padding: 10px;
+.sellNowMobileButton {
+    padding: 10px 30px;
     border: none;
-    border-radius: 5px;
-    background-color: #efd1aa;
+    border-radius: 3px;
+    color: white;
+    background-color: #1bb3c3;
+}
+
+.mobileMenuSignUp {
+    padding: 10px 20px;
+    border: 1px solid #1bb3c3;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.mobileMenuLogin {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background-color: #1bb3c3;
+}
+
+.languageButtonsRow {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10%;
+}
+
+.languageButtonsRow > p {
+    margin: 0;
+    padding: 10px 20px;
+    border: 1px solid #999999;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.mobileMenuLogOut {
+    padding: 10px 30px;
+    border: 1px solid #1bb3c3;
+    border-radius: 3px;
+    background-color: white;
 }

@@ -301,7 +301,7 @@ function Navbar() {
             </div>}
 
             <button onClick={showCartSideBar} className="shoppingCartButton">
-              <img className="shoppingCartIcon" src="https://i.imgur.com/yRpFRV5.png" alt="" />
+              <img className="shoppingCartIcon" src="https://i.imgur.com/9vTslOy.png" alt="" />
             </button>
 
             <div className="languageDropdownDiv" onClick={toggleLanguage}>
