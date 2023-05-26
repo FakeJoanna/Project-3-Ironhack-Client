@@ -1,19 +1,24 @@
 import "./Checkout.css"
 
-import CheckoutInfo from "../../components/CheckoutInfo/CheckoutInfo"
-import { useEffect, useRef, useState } from "react"
-import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios"
+
+import { useContext, useEffect, useRef, useState } from "react"
+import { useParams, useNavigate } from "react-router-dom"
+import { AuthContext } from "../../context/auth.context"
+
+import CheckoutInfo from "../../components/CheckoutInfo/CheckoutInfo"
 
 const API_URL =  process.env.REACT_APP_API_URL;
 
 function Checkout() {
     
     const navigate = useNavigate()
+    const { user } = useContext(AuthContext)
     const { productId } = useParams()
     const [product, setProduct] = useState(null)
 
     const [isCheckoutByID, setIsCheckoutByID] = useState(null)
+    const [reviewText, setReviewText] = useState("")
 
     //UseEffect to get the product details once the params is not null
     useEffect(() => {
@@ -36,6 +41,7 @@ function Checkout() {
     const paymentTerminalRef = useRef(null)
     const dimmerDivRef = useRef(null)
     const orderPlacedDivRef = useRef(null)
+    const submitReviewButtonRef = useRef(null)
 
     const [billingInfo, setBillingInfo] = useState({
         firstName: "",
@@ -83,8 +89,20 @@ function Checkout() {
         }
     }
 
-    function submitReview() {
+    function handleReviewChange(e) {
+        setReviewText(e.target.value)
+    }
 
+    function submitReview() {
+        axios.post(`${API_URL}/api/create-review`, {reviewText, userReviewing: user._id, userReviewed: product.user[0]._id})
+        .then(() => {
+            submitReviewButtonRef.current.style.backgroundColor = "#2d8a51"
+            submitReviewButtonRef.current.innerHTML = "Submitted!"
+            setTimeout(() => {
+                navigate("/")
+            }, 2000);
+        })
+        .catch(err => console.log(err))
     }
 
     function toHomePage() {
@@ -188,8 +206,8 @@ function Checkout() {
                     <div className="orderPlaceDivider"></div>
                     <div className="leaveAReviewDiv">
                         <p>Would you like to leave a review?</p>
-                        <textarea className="reviewTextArea" placeholder="Let the seller know what you think"></textarea>
-                        <button className="submitReviewButton" onClick={submitReview}>Submit review</button>
+                        <textarea className="reviewTextArea" placeholder="Let the seller know what you think" onChange={handleReviewChange}></textarea>
+                        <button ref={submitReviewButtonRef} className="submitReviewButton" onClick={submitReview}>Submit review</button>
                         <button className="skipButton" onClick={toHomePage}>No, thank you</button>
                     </div>
                 </>
