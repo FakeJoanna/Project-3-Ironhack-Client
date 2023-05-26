@@ -82,8 +82,8 @@ function ProductDetailPage() {
                     {language === "ES" && <h1 className="youMightAlsoLikeText">Quizas También de Interese</h1>}
                     <Link to="/products" className='buttonSeeMore'>
                         {language === "EN" && <button>See more</button> }
-                        {language === "EN" && <button>Voir plus</button> }
-                        {language === "EN" && <button>Ver más</button> }
+                        {language === "FR" && <button>Voir plus</button> }
+                        {language === "ES" && <button>Ver más</button> }
                     </Link>
                 </div>
                 <YouMightAlsoLike />

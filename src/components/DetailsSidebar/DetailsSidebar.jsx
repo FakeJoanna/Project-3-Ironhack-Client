@@ -21,8 +21,6 @@ function DetailsSidebar({product, ownerUser}) {
     const [isLiked, setIsLiked] = useState(false)
     const [showOfferPopup, setShowOfferPopup] = useState(false);
 
-
-
     useEffect(() => {
         if(!user) {
             return
@@ -30,7 +28,7 @@ function DetailsSidebar({product, ownerUser}) {
         checkLike()
     }, [user])
 
-
+    ////////
 
     function checkLike() {
         axios.post(`${API_URL}/api/products/${productId}/like-check`, { user })
@@ -119,7 +117,9 @@ function DetailsSidebar({product, ownerUser}) {
                     </div>
                     <div className="nameReviewDiv"> 
                         <h1 className="sidebarName">{ownerUser.name}</h1>
-                        <p className="sidebarReviews">{ownerUser.review.length === 0 ? "No reviews yet" : ownerUser.review.length.toString() + + " reviews" } ⭐️</p>
+                        {language === "EN" && <p className="sidebarReviews">{ownerUser.review.length === 0 ? "No reviews yet" : ownerUser.review.length.toString() + " reviews" }</p>}
+                        {language === "FR" && <p className="sidebarReviews">{ownerUser.review.length === 0 ? "No reviews yet" : ownerUser.review.length.toString() + " reviews" }</p>}
+                        {language === "ES" && <p className="sidebarReviews">{ownerUser.review.length === 0 ? "No reviews yet" : ownerUser.review.length.toString() + " reviews" }</p>}
                     </div>
             </div>
 
