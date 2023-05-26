@@ -116,7 +116,7 @@ function Navbar() {
       <div className="logoDiv">
 
         <Link to="/" className="logoLink">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Vinted_logo.png" alt="" className="logoImage" />
+          <img src="https://i.imgur.com/EhVVzsr.png" alt="" className="logoImage" />
         </Link>
 
       </div>
