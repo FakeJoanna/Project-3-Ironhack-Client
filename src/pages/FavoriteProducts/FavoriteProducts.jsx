@@ -3,6 +3,7 @@ import axios from "axios";
 
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+import { LanguageContext } from "../../context/lang.context" 
 
 import ProductCard from "../../components/ProductCard/ProductCard";
 
@@ -12,6 +13,7 @@ function FavoriteProducts() {
   
   const { user } = useContext(AuthContext)
   const [likedProducts, setLikedProducts] = useState([])
+  const { language } = useContext(LanguageContext)
 
   useEffect(() => {
     if(!user) {
@@ -31,8 +33,10 @@ function FavoriteProducts() {
     <div className="favouritesPageDiv">
       <div className="favouritesWrapper">
       
-        <h1>WishList ❤️</h1>
-        <div className="favouritesDiv">
+        {language === "EN" && <h1>WishList ❤️</h1>}
+        {language === "FR" && <h1>Favoris ❤️</h1>}
+        {language === "ES" && <h1>Favoritos ❤️</h1>}
+       {language === "EN" && <div className="favouritesDiv">
           {likedProducts.length !== 0
           
           ? 
@@ -50,7 +54,45 @@ function FavoriteProducts() {
           <p className="emptyWishlistText">Your wishlist is empty!</p>
 
           }
-        </div>
+        </div>}
+       {language === "FR" && <div className="favouritesDiv">
+          {likedProducts.length !== 0
+          
+          ? 
+          
+          likedProducts.map(product => {
+            return (
+                
+              <ProductCard key={product._id} product={product} />
+                
+            )
+          })
+            
+          :
+
+          <p className="emptyWishlistText">Vous n'avez pas d'articles en favoris</p>
+
+          }
+        </div>}
+       {language === "ES" && <div className="favouritesDiv">
+          {likedProducts.length !== 0
+          
+          ? 
+          
+          likedProducts.map(product => {
+            return (
+                
+              <ProductCard key={product._id} product={product} />
+                
+            )
+          })
+            
+          :
+
+          <p className="emptyWishlistText">¡Tu lista de favoritos esta vacía!</p>
+
+          }
+        </div>}
       </div>
     </div>
   )

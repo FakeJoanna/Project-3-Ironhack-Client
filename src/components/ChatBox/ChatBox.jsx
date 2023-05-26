@@ -6,7 +6,7 @@ import React, { useState, useEffect, useContext, useRef } from 'react'
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/auth.context"
 import { ChatIDsContext } from "../../context/chatIDs.context"
-
+import { LanguageContext } from "../../context/lang.context"
 import { io } from "socket.io-client"
 
 const API_URL =  process.env.REACT_APP_API_URL
@@ -22,6 +22,7 @@ function ChatBox({ singleChat })  {
     const [allMessages, setAllMessages] = useState(singleChat.messageHistory)
     const [newMessage, setNewMessage] = useState("")
     const chatBoxRef = useRef(null)
+    const { language } = useContext(LanguageContext)
 
     const { user } = useContext(AuthContext)
     const { offer, setOffer } = useContext(ChatIDsContext)
@@ -215,7 +216,9 @@ function ChatBox({ singleChat })  {
     return (
         <>
             <div className="chatHeaderDiv">
-                {otherUserName && <p className="chatHeaderText">You're talking to {otherUserName}</p>}
+                {otherUserName && language === "EN" && <p className="chatHeaderText">You're talking to {otherUserName}</p>}
+                {otherUserName && language === "FR" && <p className="chatHeaderText">Vous discutez avec {otherUserName}</p>}
+                {otherUserName && language === "ES" && <p className="chatHeaderText">Estas hablando con {otherUserName}</p>}
                 <img className="deleteChatIcon" src="https://i.imgur.com/bPjT4w5.png" alt="" onClick={deleteChat}/>
             </div>
             <div className="messagesDiv" ref={chatBoxRef}>
@@ -260,8 +263,12 @@ function ChatBox({ singleChat })  {
                                     <p className="otherUserTime">{formattedTime}</p>
                                 </div>
                                 <div className="chatOfferButtons">
-                                    <button onClick={() => acceptOffer(index)}>Accept</button>
-                                    <button onClick={() => declineOffer(index)}>Decline</button>
+                                    { language === "EN" && <button onClick={() => acceptOffer(index)}>Accept</button>}
+                                    { language === "FR" && <button onClick={() => acceptOffer(index)}>Accepter</button>}
+                                    { language === "ES" && <button onClick={() => acceptOffer(index)}>Aceptar</button>}
+                                    { language === "EN" && <button onClick={() => declineOffer(index)}>Decline</button>}
+                                    { language === "FR" && <button onClick={() => declineOffer(index)}>Refuser</button>}
+                                    { language === "ES" && <button onClick={() => declineOffer(index)}>Rechazar</button>}
                                 </div>
                             </div>}
                         </>
@@ -279,7 +286,9 @@ function ChatBox({ singleChat })  {
                                     <p className="messageText">{message.content}</p>
                                     <img className="messagePFP" src={user.profilePicture} alt="" />
                                 </div>
-                                {message.hasCheckoutButton && <button onClick={() => chatCheckout(message.hasCheckoutButton)}>Checkout</button>}
+                                {message.hasCheckoutButton && language === "EN" && <button onClick={() => chatCheckout(message.hasCheckoutButton)}>Checkout</button>}
+                                {message.hasCheckoutButton && language === "FR" && <button onClick={() => chatCheckout(message.hasCheckoutButton)}>Payer</button>}
+                                {message.hasCheckoutButton && language === "ES" && <button onClick={() => chatCheckout(message.hasCheckoutButton)}>Pagar</button>}
                             </div>                               
 
                             :

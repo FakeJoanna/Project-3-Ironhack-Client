@@ -5,6 +5,7 @@ import axios from "axios"
 import { useContext, useEffect, useRef, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/auth.context"
+import { LanguageContext } from "../../context/lang.context" 
 
 import CheckoutInfo from "../../components/CheckoutInfo/CheckoutInfo"
 
@@ -16,6 +17,7 @@ function Checkout() {
     const { user } = useContext(AuthContext)
     const { productId } = useParams()
     const [product, setProduct] = useState(null)
+    const { language } = useContext(LanguageContext)
 
     const [isCheckoutByID, setIsCheckoutByID] = useState(null)
     const [reviewText, setReviewText] = useState("")
@@ -117,10 +119,10 @@ function Checkout() {
                 <div className="checkoutDetails">
 
                     <div ref={billingWipe} className="checkoutDetailsWrapper">
-                        <h3>Billing information</h3>
+                       {language === "EN" && <h3>Billing information</h3>}
+                       {language === "FR" && <h3>Facturation</h3>}
+                       {language === "ES" && <h3>Billing information</h3>}
                         <CheckoutInfo info={billingInfo} setInfo={setBillingInfo}/>
-
-
                     </div>
 
                     <div ref={wiperRef} className="wiperDiv"></div>
@@ -134,42 +136,56 @@ function Checkout() {
                     </div>
 
                     <div className="checkoutDetailsWrapper shippingWrapper">
-                        <h3>Shipping information</h3>
+                        {language === "EN" && <h3>Shipping information</h3>}
+                        {language === "FR" && <h3>Information d'envoi</h3>}
+                        {language === "ES" && <h3>Información de envío</h3>}
                         <CheckoutInfo info={shippingInfo} setInfo={setShippingInfo}/>
                     </div>
                 
                     <div ref={paymentTerminalRef} className="paymentTerminal">
 
-                        <h3>Payment details</h3>
+                        {language === "EN" && <h3>Payment details</h3>}
+                        {language === "FR" && <h3>Details de paieme</h3>}
+                        {language === "ES" && <h3>Detalles de pago</h3>}
                         <div className="paymentTerminalWrapper">
 
                             <div className="checkoutGrouper">
                                 <div className="checkoutInfoDiv">
-                                    <label className="checkoutLabel">Name on card</label>
-                                    <input className="checkoutInput" type="text" name="nameOnCard" placeholder="JOHN DOE"/>
+                                    {language === "EN" && <label className="checkoutLabel">Name on card</label>}
+                                    {language === "FR" && <label className="checkoutLabel">Nom sur la carte</label>}
+                                    {language === "ES" && <label className="checkoutLabel">Nombre en la tarjeta</label>}
+                                    <input className="checkoutInput" type="text" name="nameOnCard" placeholder="JOHN DOE"/>                                  
                                 </div>
                             </div>
 
                             <div className="checkoutGrouper">
                                 <div className="checkoutInfoDiv">
-                                    <label className="checkoutLabel">Card number</label>
+                                    { language === "EN" && <label className="checkoutLabel">Card number</label>}
+                                    { language === "FR" && <label className="checkoutLabel">Numero de carte</label>}
+                                    { language === "ES" && <label className="checkoutLabel">Número de tarjet</label>}
                                     <input className="checkoutInput" type="number" name="nameOnCard" placeholder="XXXX - XXXX - XXXX - XXXX"/>
                                 </div>
                             </div>
 
                             <div className="checkoutGrouper">
                                 <div className="checkoutInfoDiv">
-                                    <label className="checkoutLabel">Expiration date</label>
+                                    {language === "EN" && <label className="checkoutLabel">Expiration date</label>}
+                                    {language === "FR" && <label className="checkoutLabel">Date d'expiration</label>}
+                                    {language === "ES" && <label className="checkoutLabel">Fecha de caducidad</label>}
                                     <input className="checkoutInput" type="number" name="nameOnCard" placeholder="XX / XX"/>
                                 </div>
 
                                 <div className="checkoutInfoDiv">
-                                    <label className="checkoutLabel">Security code</label>
+                                   {language === "EN" && <label className="checkoutLabel">Security code</label>}
+                                   {language === "FR" && <label className="checkoutLabel">Code de securité</label>}
+                                   {language === "ES" && <label className="checkoutLabel">Código de seguridad</label>}
                                     <input className="checkoutInput" type="number" name="nameOnCard" placeholder="XXX"/>
                                 </div>
                             </div>
 
-                            <button className="placeOrderButton" onClick={placeOrder}>Place Order</button>
+                           {language === "EN" && <button className="placeOrderButton" onClick={placeOrder}>Place Order</button>}
+                           {language === "FR" && <button className="placeOrderButton" onClick={placeOrder}>Placer la commande</button>}
+                           {language === "ES" && <button className="placeOrderButton" onClick={placeOrder}>Confirmar compra</button>}
 
                         </div>
                     </div>
@@ -200,15 +216,28 @@ function Checkout() {
             </div>
 
             <div ref={orderPlacedDivRef} className="orderPlacedDiv">
-                <p>Your order has been placed!</p>
+               {language === "EN" && <p>Your order has been placed!</p>}
+               {language === "FR" && <p>Votre commande à été recu avec succée</p>}
+               {language === "ES" && <p>Has finalizado tu compra!</p>}
                 {isCheckoutByID && 
                 <>
                     <div className="orderPlaceDivider"></div>
                     <div className="leaveAReviewDiv">
-                        <p>Would you like to leave a review?</p>
-                        <textarea className="reviewTextArea" placeholder="Let the seller know what you think" onChange={handleReviewChange}></textarea>
-                        <button ref={submitReviewButtonRef} className="submitReviewButton" onClick={submitReview}>Submit review</button>
-                        <button className="skipButton" onClick={toHomePage}>No, thank you</button>
+                        {language === "EN" && <p>Would you like to leave a review?</p>}
+                        {language === "FR" && <p>Souhaitez vous laisser un commentaire</p>}
+                        {language === "ES" && <p>¿Te gustaría dejar una reseña?</p>}
+                        
+                        {language === "EN" && <textarea className="reviewTextArea" placeholder="Let the seller know what you think" onChange={handleReviewChange}></textarea>}
+                        {language === "FR" && <textarea className="reviewTextArea" placeholder="Laisser un mot pour le vendeur" onChange={handleReviewChange}></textarea>}
+                        {language === "ES" && <textarea className="reviewTextArea" placeholder="Dale al vendedor tu opinión honesta" onChange={handleReviewChange}></textarea>}
+                        
+                        {language === "EN" && <button ref={submitReviewButtonRef} className="submitReviewButton" onClick={submitReview}>Submit review</button>}
+                        {language === "FR" && <button ref={submitReviewButtonRef} className="submitReviewButton" onClick={submitReview}>Envoyer le commentaire</button>}
+                        {language === "ES" && <button ref={submitReviewButtonRef} className="submitReviewButton" onClick={submitReview}>Confirmar reseña</button>}
+
+                        {language === "EN" && <button className="skipButton" onClick={toHomePage}>No, thank you</button>}
+                        {language === "FR" && <button className="skipButton" onClick={toHomePage}>Non, merci</button>}
+                        {language === "ES" && <button className="skipButton" onClick={toHomePage}>No, gracias</button>}
                     </div>
                 </>
                 } 

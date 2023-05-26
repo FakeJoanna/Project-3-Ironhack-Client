@@ -6,6 +6,7 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from "../../context/auth.context";
 import { ChatIDsContext } from "../../context/chatIDs.context";
+import { LanguageContext } from "../../context/lang.context" 
 
 import ProductsTab from "../../components/ProductsTab/ProductsTab";
 import ReviewsTab from "../../components/ReviewsTab/ReviewsTab";
@@ -21,6 +22,7 @@ function ProfilePage() {
   const { user } = useContext(AuthContext) //this is the logged in user
   const { userId } = useParams() //this is the user whose profile we're looking at
   const navigate = useNavigate()
+  const { language } = useContext(LanguageContext)
 
   const [userInfo, setUserInfo] = useState(null)
   const [activeTab, setActiveTab] = useState("products")
@@ -110,7 +112,9 @@ function ProfilePage() {
 
               <div className="userInfoTextDiv">
                 <h2>{userInfo.name}</h2>
-                <p>{userInfo.review.length === 0 ? "No reviews yet" : userInfo.review.length + " reviews"}</p> 
+                {language === "EN" && <p>{userInfo.review.length === 0 ? "No reviews yet" : userInfo.review.length + " reviews"}</p> }
+                {language === "FR" && <p>{userInfo.review.length === 0 ? "Pas de commentaires" : userInfo.review.length + " avis"}</p> }
+                {language === "ES" && <p>{userInfo.review.length === 0 ? "Ninguna reseña por ahora" : userInfo.review.length + " reseñas"}</p> }
               </div>
               
               <div className="userButtonsDivWrapper">
@@ -121,20 +125,34 @@ function ProfilePage() {
                   ?
 
                   <Link to={`/member/${userId}/edit`} >
-                    <button className="profileButton">Edit profile</button>
+                    {language === "EN" && <button className="profileButton">Edit profile</button>}
+                    {language === "FR" && <button className="profileButton">Editer profile</button>}
+                    {language === "ES" && <button className="profileButton">Editar perfil</button>}
                   </Link>
 
                   :
                   
                   <>
-                  <div className="followButtonDiv">
-                      <button className="profileButton" onClick={isFollowed ? handleUnfollow : handleFollow}>
-                        {isFollowed ? "Unfollow" : "Follow"}
-                      </button>
-                  </div>
+                    {language === "EN" && <div className="followButtonDiv">
+                        <button className="profileButton" onClick={isFollowed ? handleUnfollow : handleFollow}>
+                          {isFollowed ? "Unfollow" : "Follow"}
+                        </button>
+                    </div>}
+                    {language === "FR" && <div className="followButtonDiv">
+                        <button className="profileButton" onClick={isFollowed ? handleUnfollow : handleFollow}>
+                          {isFollowed ? "Ne plus suivre" : "Suivre"}
+                        </button>
+                    </div>}
+                    {language === "ES" && <div className="followButtonDiv">
+                        <button className="profileButton" onClick={isFollowed ? handleUnfollow : handleFollow}>
+                          {isFollowed ? "Dejar de seguir" : "Seguir"}
+                        </button>
+                    </div>}
 
                     <div className="chatWithUserButton">
-                      <button className="profileButton" onClick={handleChatClick}>Chat</button>
+                      {language === "EN" && <button className="profileButton" onClick={handleChatClick}>Chat</button>}
+                      {language === "FR" && <button className="profileButton" onClick={handleChatClick}>Chat</button>}
+                      {language === "ES" && <button className="profileButton" onClick={handleChatClick}>Conversar</button>}
                     </div>
                   </>
 
@@ -152,9 +170,14 @@ function ProfilePage() {
           </div>
 
           <div className="tabButtonsDiv">
-            <button id="productsTabButton" className="tabButton activeTabButton" onClick={() => handleTabChange("products")}>Products</button>
-            <button id="reviewsTabButton" className="tabButton" onClick={() => handleTabChange("reviews")}>Reviews</button>
-          </div>
+           {language === "EN" && <button id="productsTabButton" className="tabButton activeTabButton" onClick={() => handleTabChange("products")}>Products</button>}
+           {language === "FR" && <button id="productsTabButton" className="tabButton activeTabButton" onClick={() => handleTabChange("products")}>Produits</button>}
+           {language === "ES" && <button id="productsTabButton" className="tabButton activeTabButton" onClick={() => handleTabChange("products")}>Productos</button>}
+           
+           {language === "EN" &&  <button id="reviewsTabButton" className="tabButton" onClick={() => handleTabChange("reviews")}>Reviews</button>}         
+           {language === "FR" &&  <button id="reviewsTabButton" className="tabButton" onClick={() => handleTabChange("reviews")}>Commentaires</button>}         
+           {language === "ES" &&  <button id="reviewsTabButton" className="tabButton" onClick={() => handleTabChange("reviews")}>Reseñas</button>}         
+ </div>
 
           <hr className="profilePageDivider"/>
 

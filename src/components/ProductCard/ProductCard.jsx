@@ -1,8 +1,12 @@
 import "./ProductCard.css"
 
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { LanguageContext } from "../../context/lang.context"
 
 function ProductCard({product}) {
+
+    const { language } = useContext(LanguageContext)
 
     // shorterns description/title to avoid text overflow on the cards
     let title = product.title.split(" ")
@@ -40,7 +44,9 @@ function ProductCard({product}) {
                             </div>
 
                             <div className="productCardInfoDiv">
-                                <p className="priceProduct">${product.price}</p>
+                               { language === "EN" &&  <p className="priceProduct">${product.price}</p>}
+                               { language === "FR" &&  <p className="priceProduct">€{product.price}</p>}
+                               { language === "ES" &&  <p className="priceProduct">€{product.price}</p>}
                                 <p className="descriptionProduct">{product.title}</p>
                                 <p className="descriptionProduct">{product.size}</p>
                                 <p className="descriptionProduct">{product.brand}</p>

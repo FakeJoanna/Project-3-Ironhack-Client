@@ -1,7 +1,8 @@
 import "./ProfilePictureInput.css"
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import axios from "axios"
+import { LanguageContext } from "../../context/lang.context" 
 
 const API_URL =  process.env.REACT_APP_API_URL
 
@@ -10,7 +11,7 @@ function ProfilePictureInput({ changePFP, user }) {
     const canvasRef = useRef(null)
     const imageRef = useRef(null)
     const successMessageRef = useRef(null)
-
+    const { language } = useContext(LanguageContext)
     const [imageURL, setImageURL] = useState(user.profilePicture)
     const [triggered, setTriggered] = useState(false)
 
@@ -73,7 +74,9 @@ function ProfilePictureInput({ changePFP, user }) {
                 <img ref={imageRef} className="currentPFP" src={user.profilePicture} alt="" />
                 <button className="editPFPButton" onClick={handleClick}></button>
                 <input id="fileInput" className="hiddenImageInput" type="file" onChange={handleFileInput}/>
-                <p ref={successMessageRef} className="changePFP-success-message">Profile picture changed.</p>
+                {language === "EN" && <p ref={successMessageRef} className="changePFP-success-message">Profile picture changed.</p>}
+                {language === "FR" && <p ref={successMessageRef} className="changePFP-success-message">Photo de profile changé.</p>}
+                {language === "ES" && <p ref={successMessageRef} className="changePFP-success-message">Foto de usuario cambiada.</p>}
         </div>
     )
 }

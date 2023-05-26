@@ -6,6 +6,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth.context";
 import { ChatIDsContext } from "../../context/chatIDs.context"
+import { LanguageContext } from "../../context/lang.context"
  
 const API_URL =  process.env.REACT_APP_API_URL
 
@@ -16,6 +17,7 @@ function Offer({ productOwner }) {
 
     const { user } = useContext(AuthContext)
     const { setChatIDs, setOffer } = useContext(ChatIDsContext)
+    const { language } = useContext(LanguageContext)
     
     const navigate = useNavigate()
     const { productId } = useParams()
@@ -45,7 +47,9 @@ function Offer({ productOwner }) {
     return (
         <div className="popupContainer">
           <form className="offerForm" onSubmit={handleSubmit}>
-            <h1>Make an Offer</h1>
+            {language === "EN" && <h1>Make an Offer</h1>}
+            {language === "FR" && <h1>Faire une offre</h1>}
+            {language === "ES" && <h1>Hacer Oferta</h1>}
             <input
               name="price"
               type="number"
@@ -53,7 +57,9 @@ function Offer({ productOwner }) {
               onChange={handleChange}
             ></input>
             
-            <button type="submit">Send offer</button>
+            { language === "EN" && <button type="submit">Send offer</button>}
+            { language === "FR" && <button type="submit">Envoyer l'of</button>}
+            { language === "ES" && <button type="submit">Enviar oferta</button>}
           </form>
         </div>
     );

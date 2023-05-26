@@ -4,10 +4,12 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 
 import { CartContext } from "../../context/cart.context"
+import { LanguageContext } from "../../context/lang.context"
 
 function CartSideBar() {
     
     const { cart, removeFromCart } = useContext(CartContext)
+    const { language } = useContext(LanguageContext)
 
     let cartTotal = 0
     cart.forEach(item => {
@@ -17,8 +19,12 @@ function CartSideBar() {
     return(
         <>
             <div className="cartTop">
-                <h5 className="cartName">Your Shopping Cart</h5>
-                <h5>Your total is: {cartTotal}€</h5>
+                {language === "EN" && <h5 className="cartName">Your Shopping Cart</h5>}
+                {language === "FR" && <h5 className="cartName">Votre panier</h5>}
+                {language === "ES" && <h5 className="cartName">Tu carro de la compra</h5>}
+                {language === "EN" && <h5>Your total is: {cartTotal}€</h5>}
+                {language === "FR" && <h5>Votre total est : {cartTotal}€</h5>}
+                {language === "ES" && <h5>Total: {cartTotal}€</h5>}
             </div>
 
             <div className="cartMainDiv">
@@ -35,7 +41,9 @@ function CartSideBar() {
                                 </div>
                                 <div className="cartDelete">
                                     <button className="cartDeleteButton" onClick={() => removeFromCart(item._id)}>
-                                        <p>Remove</p>
+                                        {language === "EN" && <p>Remove</p>}
+                                        {language === "FR" && <p>Supprimer</p>}
+                                        {language === "ES" && <p>Eliminar</p>}
                                     </button> 
                                 </div>
                             </div>
@@ -47,7 +55,9 @@ function CartSideBar() {
             <div className="checkoutDiv">
                 <Link to="/checkout" >
                     <button className="checkoutButton">
-                        <p>Checkout</p>
+                    {language === "EN" &&  <p>Checkout</p>}
+                    {language === "FR" &&  <p>Payer</p>}
+                    {language === "ES" &&  <p>Pagar</p>}
                     </button>
                 </Link>
             </div>

@@ -2,6 +2,7 @@ import "./Navbar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState, useEffect, useRef } from "react";
 import { AuthContext } from "../../context/auth.context";
+import { LanguageContext } from "../../context/lang.context";
 
 import axios from "axios";
 
@@ -15,7 +16,7 @@ function Navbar() {
   const navigate = useNavigate()
   const location = useLocation()
   const { isLoggedIn, logOutUser, user } = useContext(AuthContext)
-
+  const { language, setLanguage } = useContext(LanguageContext)
   
   const [products, setProducts] = useState([])
   const [users, setUsers] = useState([])
@@ -26,7 +27,8 @@ function Navbar() {
   const [optionsShown, setOptionsShown] = useState(false)
   const navSelector = useRef(null)
   const navOptions = useRef(null)
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [langDropDownOpen, setLangDropDownOpen] = useState(false)
 
   function toggleDropdown() {
     setDropdownOpen(!dropdownOpen);
@@ -105,6 +107,10 @@ function Navbar() {
     navigate(`/search?q=${query}`)
   }
 
+  function toggleLanguage() {
+    setLangDropDownOpen(!langDropDownOpen)
+  }
+
   return (
     <nav className="projectNavbar">
       <div className="logoDiv">
@@ -121,12 +127,20 @@ function Navbar() {
       <div className="searchDiv">
         <div className="searchDivWrapper">
 
-          <div className="navSelection" ref={navSelector} onClick={showOptions}>
+          {language === "EN" && <div className="navSelection" ref={navSelector} onClick={showOptions}>
             {navSelection === "products" ? <p>Products</p> : <p>Members</p>}
             <svg className="navSelectionArrow" viewBox="0 0 16 16"><path d="M8 12L2 6h12z"></path></svg>
-          </div>
+          </div>}
+          {language === "FR" && <div className="navSelection" ref={navSelector} onClick={showOptions}>
+            {navSelection === "products" ? <p>Produits</p> : <p>Membres</p>}
+            <svg className="navSelectionArrow" viewBox="0 0 16 16"><path d="M8 12L2 6h12z"></path></svg>
+          </div>}
+          {language === "ES" && <div className="navSelection" ref={navSelector} onClick={showOptions}>
+            {navSelection === "products" ? <p>Products</p> : <p>Miembros</p>}
+            <svg className="navSelectionArrow" viewBox="0 0 16 16"><path d="M8 12L2 6h12z"></path></svg>
+          </div>}
 
-          <div className="navOptions" ref={navOptions}>
+          {language === "EN" && <div className="navOptions" ref={navOptions}>
             <div className="navOption firstOption" onClick={() => navSelect("products")}>
               <p>Products</p>
               <hr></hr>
@@ -135,13 +149,33 @@ function Navbar() {
             <div className="navOption secondOption" onClick={() => navSelect("members")}>
               <p>Members</p>
             </div>
-          </div>
+          </div>}
+          {language === "FR" && <div className="navOptions" ref={navOptions}>
+            <div className="navOption firstOption" onClick={() => navSelect("products")}>
+              <p>Produits</p>
+              <hr></hr>
+            </div>
+
+            <div className="navOption secondOption" onClick={() => navSelect("members")}>
+              <p>Membres</p>
+            </div>
+          </div>}
+          {language === "ES" && <div className="navOptions" ref={navOptions}>
+            <div className="navOption firstOption" onClick={() => navSelect("products")}>
+              <p>Productos</p>
+              <hr></hr>
+            </div>
+
+            <div className="navOption secondOption" onClick={() => navSelect("members")}>
+              <p>Miembros</p>
+            </div>
+          </div>}
 
           {optionsShown && <button className="closeNavSelectorButton" onClick={() => navSelect(navSelection)}></button>}
 
           <form className="searchBarForm" onSubmit={handleSearch}>
           
-            <div className="searchBar">
+            {language === "EN" && <div className="searchBar">
             
               {navSelection === "products"
               
@@ -155,7 +189,37 @@ function Navbar() {
 
               }
 
-            </div>
+            </div>}
+            {language === "FR" && <div className="searchBar">
+            
+              {navSelection === "products"
+              
+              ?
+              
+              <input type="text" className="searchBarInput" placeholder="Rechercher un produit" onChange={previewProducts} /> 
+
+              :
+
+              <input type="text" className="searchBarInput" placeholder="Rechercher des membres" onChange={previewUsers} />
+
+              }
+
+            </div>}
+            {language === "ES" && <div className="searchBar">
+            
+              {navSelection === "products"
+              
+              ?
+              
+              <input type="text" className="searchBarInput" placeholder="Buscar productos" onChange={previewProducts} /> 
+
+              :
+
+              <input type="text" className="searchBarInput" placeholder="Buscar miembros" onChange={previewUsers} />
+
+              }
+
+            </div>}
               
             {products.length === 0 ? <></> :
             
@@ -192,39 +256,97 @@ function Navbar() {
               <img className="messageIcon" src="https://i.imgur.com/qeJCkCy.png" alt="" />
             </Link>
 
-            <Link to="/new-product">
+            {language === "EN" && <Link to="/new-product">
               <button className="sellNowButton">Sell now</button>
-            </Link>
+            </Link>}
+            {language === "FR" && <Link to="/new-product">
+              <button className="sellNowButton">Vendre</button>
+            </Link>}
+            {language === "ES" && <Link to="/new-product">
+              <button className="sellNowButton">Vender</button>
+            </Link>}
 
-            <div className="profile-dropdown" onClick={toggleDropdown}>
+            {language === "EN" && <div className="profile-dropdown" onClick={toggleDropdown}>
               <img className="avatar-card2" src={user.profilePicture} alt="" />
               {dropdownOpen && (
                 <div className="dropdown-content">
                   <p className="accountTitleDropDown">Account</p>
                   <Link to={`/member/${user._id}`}>Profile</Link>
                   <Link to={`/member/${user._id}/edit`}>Edit Profile</Link>
-                  <Link to={`/member/${user._id}`}>Payment</Link>
                   <Link className="logout" onClick={logOutUser}>Log out</Link>
-                
                 </div>
               )}
-            </div>
+            </div>}
+            {language === "FR" && <div className="profile-dropdown" onClick={toggleDropdown}>
+              <img className="avatar-card2" src={user.profilePicture} alt="" />
+              {dropdownOpen && (
+                <div className="dropdown-content">
+                  <p className="accountTitleDropDown">Compte</p>
+                  <Link to={`/member/${user._id}`}>Profile</Link>
+                  <Link to={`/member/${user._id}/edit`}>Editer Profile</Link>
+                  <Link className="logout" onClick={logOutUser}>Déconnexion</Link>
+                </div>
+              )}
+            </div>}
+            {language === "ES" && <div className="profile-dropdown" onClick={toggleDropdown}>
+              <img className="avatar-card2" src={user.profilePicture} alt="" />
+              {dropdownOpen && (
+                <div className="dropdown-content">
+                  <p className="accountTitleDropDown">Cuenta</p>
+                  <Link to={`/member/${user._id}`}>Perfil</Link>
+                  <Link to={`/member/${user._id}/edit`}>Editar perfil</Link>
+                  <Link className="logout" onClick={logOutUser}>Cerrar sesión</Link>
+                </div>
+              )}
+            </div>}
 
             <button onClick={showCartSideBar} className="shoppingCartButton">
               <img className="shoppingCartIcon" src="https://i.imgur.com/yRpFRV5.png" alt="" />
             </button>
+
+            <div className="languageDropdownDiv" onClick={toggleLanguage}>
+                <p>{language}</p>
+               {langDropDownOpen && (
+                <div className="language-dropdown-content">
+                {language === "FR" ? <p onClick={() => setLanguage("EN")}>EN</p> : <p onClick={() => setLanguage("FR")}>FR</p>}
+                {language === "ES" ? <p onClick={() => setLanguage("EN")}>EN</p> : <p onClick={() => setLanguage("ES")}>ES</p>}  
+              </div>
+               )}
+            </div>
           </>
         )}
 
         {!isLoggedIn && (
           <>
-            <Link to="/signup">
+            {language === "EN" && <Link to="/signup">
               <button className="signUpButton">Sign Up</button>
-            </Link>
+            </Link>}
+            {language === "FR" && <Link to="/signup">
+              <button className="signUpButton">Crée un compte</button>
+            </Link>}
+            {language === "ES" && <Link to="/signup">
+              <button className="signUpButton">Registrarse</button>
+            </Link>}
             
-            <Link to="/login">
+            {language === "EN" && <Link to="/login">
               <button className="logInButton">Login</button>
-            </Link>
+            </Link>}
+            {language === "FR" && <Link to="/login">
+              <button className="logInButton">Connexion</button>
+            </Link>}
+            {language === "ES" && <Link to="/login">
+              <button className="logInButton">Iniciar sesión</button>
+            </Link>}
+
+            <div className="languageDropdownDiv" onClick={toggleLanguage}>
+                <p>{language}</p>
+               {langDropDownOpen && (
+                <div className="language-dropdown-content">
+                {language === "FR" ? <p onClick={() => setLanguage("EN")}>EN</p> : <p onClick={() => setLanguage("FR")}>FR</p>}
+                {language === "ES" ? <p onClick={() => setLanguage("EN")}>EN</p> : <p onClick={() => setLanguage("ES")}>ES</p>}  
+              </div>
+               )}
+            </div>
           </>
         )}
 

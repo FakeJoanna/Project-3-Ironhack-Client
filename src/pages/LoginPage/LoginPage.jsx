@@ -1,12 +1,14 @@
 import "./LoginPage.css";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { LanguageContext } from "../../context/lang.context" 
 
 import { AuthContext } from "../../context/auth.context";
 
 function LoginPage() {
 
   const { login, errorMessage, googleLogin } = useContext(AuthContext);
+  const { language } = useContext(LanguageContext)
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,8 +35,13 @@ function LoginPage() {
         <form className="loginForm" onSubmit={handleLoginSubmit}>
 
           <div className="loginFormTopText">
-            <p className="logInTitle">Login to your Account</p>
-            <p className="logInSubtitle">We're glad to see you back.</p>
+            {language === "EN" && <p className="logInTitle">Login to your Account</p>}
+            {language === "FR" && <p className="logInTitle">Connexion a votre compte</p>}
+            {language === "ES" && <p className="logInTitle">Inicia sesión</p>}
+
+            {language === "EN" && <p className="logInSubtitle">We're glad to see you back.</p>}
+            {language === "FR" && <p className="logInSubtitle">Nous sommes ravis de vous revoir.</p>}
+            {language === "ES" && <p className="logInSubtitle">Nos alegramos de volver a verte.</p>}
           </div>
 
           <div className="loginInputDiv">
@@ -47,7 +54,9 @@ function LoginPage() {
           </div>
 
           <div className="loginInputDiv">
-            <label className="loginInputLabel" htmlFor="password_field">Password</label>
+            { language === "EN" && <label className="loginInputLabel" htmlFor="password_field">Password</label>}
+            { language === "FR" && <label className="loginInputLabel" htmlFor="password_field">Mot de passe</label>}
+            { language === "ES" && <label className="loginInputLabel" htmlFor="password_field">Contraseña</label>}
             <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" className="icon">
               <path strokeLinecap="round" strokeWidth="1.5" stroke="#141B34" d="M18 11.0041C17.4166 9.91704 16.273 9.15775 14.9519 9.0993C13.477 9.03404 11.9788 9 10.329 9C8.67911 9 7.18091 9.03404 5.70604 9.0993C3.95328 9.17685 2.51295 10.4881 2.27882 12.1618C2.12602 13.2541 2 14.3734 2 15.5134C2 16.6534 2.12602 17.7727 2.27882 18.865C2.51295 20.5387 3.95328 21.8499 5.70604 21.9275C6.42013 21.9591 7.26041 21.9834 8 22"></path>
               <path strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" stroke="#141B34" d="M6 9V6.5C6 4.01472 8.01472 2 10.5 2C12.9853 2 15 4.01472 15 6.5V9"></path>
@@ -57,12 +66,16 @@ function LoginPage() {
           </div>
 
           <button type="submit" className="loginButton">
-            <span>Log In</span>
+            {language === "EN" && <span>Log In</span>}
+            {language === "FR" && <span>Connexion</span>}
+            {language === "ES" && <span>Iniciar sesión</span>}
           </button>
 
           <div className="separator">
             <hr className="line"></hr>
-            <span>Or</span>
+            {language === "EN" && <span>Or</span>}
+            {language === "FR" && <span>Où</span>}
+            {language === "ES" && <span>O</span>}
             <hr className="line"></hr>
           </div>
 
@@ -72,14 +85,21 @@ function LoginPage() {
 
           <button type="submit" onClick={googleLogin} className="googleLoginButton">
             <img className="googleLogo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1024px-Google_%22G%22_Logo.svg.png" alt="" />
-            <span>Log In with Google</span>
+            {language === "EN" && <span>Log In with Google</span>}
+            {language === "FR" && <span>Connexion avec Google</span>}
+            {language === "ES" && <span>Iniciar sesión con Google</span>}
           </button>
 
           {errorMessage && <p className="error-message">{errorMessage}</p>}
 
           <div className="noAccount">
-            <p>Don't have an account yet?</p>
-            <Link className="signUpLink" to={"/signup"}> Sign Up</Link>
+            {language === "EN" && <p>Don't have an account yet?</p>}
+            {language === "FR" && <p>Pas de compte?</p>}
+            {language === "ES" && <p>¿Aún no tienes una cuenta?</p>}
+
+            {language === "EN" && <Link className="signUpLink" to={"/signup"}>Sign Up</Link>}
+            {language === "FR" && <Link className="signUpLink" to={"/signup"}>Crée un compte</Link>}
+            {language === "ES" && <Link className="signUpLink" to={"/signup"}>Crear cuenta</Link>}
           </div>
           
         </div>

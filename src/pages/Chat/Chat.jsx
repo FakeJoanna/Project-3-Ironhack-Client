@@ -3,6 +3,7 @@ import "./Chat.css"
 import axios from "axios"
 
 import { useState, useEffect, useContext } from "react";
+import { LanguageContext } from "../../context/lang.context" 
 
 import { AuthContext } from "../../context/auth.context";
 import { ChatIDsContext } from "../../context/chatIDs.context"
@@ -16,6 +17,7 @@ function Chat() {
 
     const { user } = useContext(AuthContext)
     const { chatIDs } = useContext(ChatIDsContext)
+    const { language } = useContext(LanguageContext)
 
     const [allChats, setAllChats] = useState(null)
     const [singleChat, setSingleChat] = useState(null)
@@ -68,7 +70,7 @@ function Chat() {
             <div className="chatPageWrapper">
                 <div className="chatBoxDiv">
 
-                    <div className="chatSideBar">
+                    {language === "EN" && <div className="chatSideBar">
                         {allChats ?
                         
                         allChats.map(chat => {
@@ -87,7 +89,47 @@ function Chat() {
                         <p className="noChatsText">You have no chats.</p>
 
                         }
-                    </div>
+                    </div>}
+                    {language === "FR" && <div className="chatSideBar">
+                        {allChats ?
+                        
+                        allChats.map(chat => {
+                            const otherUser = chat.users.find(userFromArray => userFromArray._id !== user._id)
+                            
+                            return(
+                                <div key={chat._id} className="sideBarChatDiv" onClick={() => changeChat(chat)}>
+                                    <img src={otherUser.profilePicture} alt="" />
+                                    <p>{otherUser.name}</p>
+                                </div>
+                            )
+                        })
+
+                        :
+
+                        <p className="noChatsText">Aucune discussion</p>
+
+                        }
+                    </div>}
+                    {language === "ES" && <div className="chatSideBar">
+                        {allChats ?
+                        
+                        allChats.map(chat => {
+                            const otherUser = chat.users.find(userFromArray => userFromArray._id !== user._id)
+                            
+                            return(
+                                <div key={chat._id} className="sideBarChatDiv" onClick={() => changeChat(chat)}>
+                                    <img src={otherUser.profilePicture} alt="" />
+                                    <p>{otherUser.name}</p>
+                                </div>
+                            )
+                        })
+
+                        :
+
+                        <p className="noChatsText">No tienes conversaciones.</p>
+
+                        }
+                    </div>}
 
                     <div className="mainChatDiv">
                         {singleChat ? 

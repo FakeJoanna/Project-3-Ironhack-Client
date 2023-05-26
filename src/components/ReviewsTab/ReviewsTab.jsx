@@ -1,8 +1,12 @@
 import "./ReviewsTab.css"
 
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom"
+import { LanguageContext } from "../../context/lang.context" 
 
 function ReviewsTab({reviews}) {
+    
+    const { language } = useContext(LanguageContext)
 
     const navigate = useNavigate()
     function takeToReviewerAccount(id) {
@@ -38,7 +42,9 @@ function ReviewsTab({reviews}) {
 
             <div className="noReviewsDiv">
                 <img src="https://cdn3.iconfinder.com/data/icons/sympletts-free-sampler/128/star-512.png" alt="" />
-                <p>This member has no reviews yet</p>
+               {language === "EN" && <p>This member has no reviews yet.</p>}
+               {language === "FR" && <p>Cet utilisateur n'as pas de commentaires.</p>}
+               {language === "ES" && <p>Este usuario no tiene reseñas.</p>}
             </div>
         
             }

@@ -9,6 +9,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { AuthProviderWrapper } from "./context/auth.context";
 import { CartProviderWrapper } from "./context/cart.context";
 import { ChatIDsProviderWrapper } from "./context/chatIDs.context";
+import { LanguageProviderWrapper } from "./context/lang.context";
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -22,7 +23,9 @@ root.render(
       <AuthProviderWrapper>
         <CartProviderWrapper>
           <ChatIDsProviderWrapper>
-            <App />
+            <LanguageProviderWrapper>
+              <App />
+            </LanguageProviderWrapper>
           </ChatIDsProviderWrapper>
         </CartProviderWrapper>
       </AuthProviderWrapper>

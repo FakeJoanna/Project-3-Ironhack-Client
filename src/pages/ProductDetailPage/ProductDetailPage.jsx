@@ -3,6 +3,7 @@ import "./ProductDetailPage.css"
 import { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
+import { LanguageContext } from "../../context/lang.context" 
 
 import Carousel from "../../components/Carousel/Carousel";
 import DetailsSidebar from "../../components/DetailsSidebar/DetailsSidebar";
@@ -16,6 +17,7 @@ function ProductDetailPage() {
 
     const { user } = useContext(AuthContext)
     const { productId } = useParams(); 
+    const { language } = useContext(LanguageContext)
 
     const [product, setProduct] = useState(null)
     const [userInfo, setUserInfo] = useState(null) //to fetch review numbers and profile picture img
@@ -48,7 +50,9 @@ function ProductDetailPage() {
                         ?
 
                         <Link to={`/products/${product._id}/edit`}>
-                            <button className="editProductButton">EDIT PRODUCT</button>
+                            {language === "EN" && <button className="editProductButton">EDIT PRODUCT</button>}
+                            {language === "FR" && <button className="editProductButton">EDITER PRODUIT</button>}
+                            {language === "ES" && <button className="editProductButton">EDITAR PRODUCTO</button>}
                         </Link>
 
                         :
@@ -73,9 +77,13 @@ function ProductDetailPage() {
             
             <div className="youMightAlsoLikeWrapper">
                 <div className="secondSectionHeader">
-                    <h1 className="youMightAlsoLikeText">You Might Also Like</h1>
+                    {language === "EN" && <h1 className="youMightAlsoLikeText">You Might Also Like</h1>}
+                    {language === "FR" && <h1 className="youMightAlsoLikeText">Vous pouvez aimer...</h1>}
+                    {language === "ES" && <h1 className="youMightAlsoLikeText">Quizas También de Interese</h1>}
                     <Link to="/products" className='buttonSeeMore'>
-                        <button>See more</button> 
+                        {language === "EN" && <button>See more</button> }
+                        {language === "EN" && <button>Voir plus</button> }
+                        {language === "EN" && <button>Ver más</button> }
                     </Link>
                 </div>
                 <YouMightAlsoLike />

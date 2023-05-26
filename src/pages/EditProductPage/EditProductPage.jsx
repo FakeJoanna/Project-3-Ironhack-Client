@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import { AuthContext } from "../../context/auth.context"
+import { LanguageContext } from "../../context/lang.context";
 import ImageInput from "../../components/ImageInput/ImageInput";
  
 const API_URL =  process.env.REACT_APP_API_URL;
@@ -16,6 +17,7 @@ function EditProjectPage() {
 
     const { productId } = useParams()
     const navigate = useNavigate()
+    const { language } = useContext(LanguageContext)
 
     const [imagesLoading, setImagesLoading] = useState(false)
     const [imageURLs, setImageURLs] = useState([])
@@ -112,16 +114,26 @@ function EditProjectPage() {
                         <ImageInput imagesLoading={imagesLoading} setImageURLs={setImageURLs} imageURLs={imageURLs} handleImages={handleImages}/>
                     </div>
                     <div>
-                        <label>Title</label>
-                        <input value={product.title} name="title" placeholder="Name of the product" type="text" alt="" onChange={handleChange}></input>
+                        {language === "EN" && <label>Title</label>}
+                        {language === "FR" && <label>Titre</label>}
+                        {language === "ES" && <label>Título</label>}
+                        
+                        {language === "EN" && <input name="title" placeholder="Name of the product" type="text" alt="" onChange={handleChange}></input>}
+                        {language === "FR" && <input name="title" placeholder="Nom du produit" type="text" alt="" onChange={handleChange}></input>}
+                        {language === "ES" && <input name="title" placeholder="Nombre del producto" type="text" alt="" onChange={handleChange}></input>}
                     </div>
                     <div>
-                        <label>Description</label>
-                        <textarea value={product.description} name="description" placeholder="Description of the product" type="text" alt="" onChange={handleChange}></textarea>
+                        {language === "EN" &&<label>Description</label>}
+                        {language === "FR" &&<label>Description</label>}
+                        {language === "ES" &&<label>Descripción</label>}
+                        
+                        {language === "EN" && <textarea name="description" placeholder="Description of the product" type="text" alt="" onChange={handleChange}></textarea>}
+                        {language === "FR" && <textarea name="description" placeholder="Description du produit" type="text" alt="" onChange={handleChange}></textarea>}
+                        {language === "ES" && <textarea name="description" placeholder="Descripción del producto" type="text" alt="" onChange={handleChange}></textarea>}
                     </div>
-                    <div>
+                    {language === "EN" && <div>
                       <label>Category</label>
-                        <select value={product.category} name="category" onChange={handleChange}>
+                        <select name="category" onChange={handleChange}>
                                 <option value="">Select a category</option>
                                 <option value="Men">Men</option>
                                 <option value="Women">Women</option>
@@ -129,33 +141,79 @@ function EditProjectPage() {
                                 <option value="Baby">Baby</option>
                                 <option value="Accessories">Accessories</option>
                         </select>
+                    </div>}
+                    {language === "FR" && <div>
+                      <label>Category</label>
+                        <select name="category" onChange={handleChange}>
+                                <option value="">Selectionner une categorie</option>
+                                <option value="Men">Homme</option>
+                                <option value="Women">Femme</option>
+                                <option value="Home">Maison</option>
+                                <option value="Baby">Enfant</option>
+                                <option value="Accessories">Accessoire</option>
+                        </select>
+                    </div>}
+                    {language === "ES" && <div>
+                      <label>Category</label>
+                        <select name="category" onChange={handleChange}>
+                                <option value="">Elegir categoría</option>
+                                <option value="Men">Hombres</option>
+                                <option value="Women">Mujeres</option>
+                                <option value="Home">Hogar</option>
+                                <option value="Baby">Niños</option>
+                                <option value="Accessories">Accesorios</option>
+                        </select>
+                    </div>}
+                    <div>
+                       {language === "EN" &&  <label>Price</label>}
+                       {language === "FR" &&  <label>Prix</label>}
+                       {language === "ES" &&  <label>Precio</label>}
+                        <input name="price" type="number" alt=""  placeholder="$00.00" onChange={handleChange}></input>
                     </div>
                     <div>
-                        <label>Price</label>
-                        <input value={product.price} name="price" type="number" alt=""  placeholder="$00.00" onChange={handleChange}></input>
+                        {language === "EN" && <label>State</label>}
+                        {language === "FR" && <label>Etat</label>}
+                        {language === "ES" && <label>Estado</label>}
+                        
+                        {language ==="EN" && <input name="state" placeholder="ex: Good" type="text" alt="" onChange={handleChange}></input>}
+                        {language ==="FR" && <input name="state" placeholder="ex: Bon" type="text" alt="" onChange={handleChange}></input>}
+                        {language ==="ES" && <input name="state" placeholder="ex: Buen estado" type="text" alt="" onChange={handleChange}></input>}
+                      
                     </div>
                     <div>
-                        <label>State</label>
-                        <input value={product.state} name="state" placeholder="ex: Good" type="text" alt="" onChange={handleChange}></input>
+                       { language === "EN" && <label>Brand</label>}
+                       { language === "FR" && <label>Marque</label>}
+                       { language === "ES" && <label>Marca</label>}
+                        <input name="brand" placeholder="ex: Zara" type="text" alt="" onChange={handleChange}></input>
                     </div>
                     <div>
-                        <label>Brand</label>
-                        <input value={product.brand} name="brand" placeholder="ex: Zara" type="text" alt="" onChange={handleChange}></input>
+                        { language === "EN" && <label>Size</label>}
+                        { language === "FR" && <label>Taille</label>}
+                        { language === "ES" && <label>Tamaño</label>}
+                        <input name="size" placeholder="ex: L" type="text" alt="" onChange={handleChange}></input>
                     </div>
                     <div>
-                        <label>Size</label>
-                        <input value={product.size} name="size" placeholder="ex: L" type="text" alt="" onChange={handleChange}></input>
+                        {language === "EN" && <label>Color</label>}
+                        {language === "FR" && <label>Couleur</label>}
+                        {language === "ES" && <label>Color</label>}
+                    
+                        {language === "EN" && <input name="color" placeholder="ex: Blue" type="text" alt="" onChange={handleChange}></input>}
+                        {language === "FR" && <input name="color" placeholder="ex: Bleu" type="text" alt="" onChange={handleChange}></input>}
+                        {language === "ES" && <input name="color" placeholder="ex: Azul" type="text" alt="" onChange={handleChange}></input>}
                     </div>
                     <div>
-                        <label>Color</label>
-                        <input value={product.color} name="color" placeholder="ex: Blue" type="text" alt="" onChange={handleChange}></input>
+                        { language === "EN" && <label>Country</label>}
+                        { language === "FR" && <label>Pays</label>}
+                        { language === "ES" && <label>País</label>}
+                        <input name="country" placeholder="ex: France" type="text" alt="" onChange={handleChange}></input>
                     </div>
-                    <div>
-                        <label>Country</label>
-                        <input value={product.country} name="country" placeholder="ex: France" type="text" alt="" onChange={handleChange}></input>
-                    </div>
-                    <button type="submit" className="submitEditsButton">EDIT PRODUCT</button>
-                    <button className="deleteProductButton" onClick={handleDelete}>DELETE PRODUCT</button>
+                    {language === "EN" && <button type="submit" className="addProductButton">ADD A PRODUCT</button>}
+                    {language === "FR" && <button type="submit" className="addProductButton">AJOUTER UN PRODUIT</button>}
+                    {language === "ES" && <button type="submit" className="addProductButton">CREAR PRODUCTO</button>}
+
+                    {language === "EN" && <button className="deleteProductButton" onClick={handleDelete}>DELETE PRODUCT</button>}
+                    {language === "FR" && <button className="deleteProductButton" onClick={handleDelete}>EFFACER LE PRODUIT</button>}
+                    {language === "ES" && <button className="deleteProductButton" onClick={handleDelete}>ELIMINAR PRODUCTO</button>}
                 </form>
             </div>
         </div>
