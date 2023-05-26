@@ -100,15 +100,24 @@ function Checkout() {
         .then(() => {
             submitReviewButtonRef.current.style.backgroundColor = "#2d8a51"
             submitReviewButtonRef.current.innerHTML = "Submitted!"
-            setTimeout(() => {
-                navigate("/")
-            }, 2000);
+            
+            axios.delete(`${API_URL}/api/products/${productId}`)
+            .then(() => {
+                setTimeout(() => {
+                    navigate("/")
+                }, 2000);
+            })
+            .catch((err) => console.log(err));
         })
         .catch(err => console.log(err))
     }
 
     function toHomePage() {
-        navigate("/")
+        axios.delete(`${API_URL}/api/products/${productId}`)
+        .then(() => {
+            navigate("/")
+        })
+        .catch((err) => console.log(err));
     }
 
     return(

@@ -118,8 +118,8 @@ function DetailsSidebar({product, ownerUser}) {
                     <div className="nameReviewDiv"> 
                         <h1 className="sidebarName">{ownerUser.name}</h1>
                         {language === "EN" && <p className="sidebarReviews">{ownerUser.review.length === 0 ? "No reviews yet" : ownerUser.review.length.toString() + " reviews" }</p>}
-                        {language === "FR" && <p className="sidebarReviews">{ownerUser.review.length === 0 ? "No reviews yet" : ownerUser.review.length.toString() + " reviews" }</p>}
-                        {language === "ES" && <p className="sidebarReviews">{ownerUser.review.length === 0 ? "No reviews yet" : ownerUser.review.length.toString() + " reviews" }</p>}
+                        {language === "FR" && <p className="sidebarReviews">{ownerUser.review.length === 0 ? "Pas de commentaires" : ownerUser.review.length.toString() + " reviews" }</p>}
+                        {language === "ES" && <p className="sidebarReviews">{ownerUser.review.length === 0 ? "Ninguna reseña por ahora" : ownerUser.review.length.toString() + " reviews" }</p>}
                     </div>
             </div>
 
