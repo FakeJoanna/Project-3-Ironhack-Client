@@ -5,7 +5,6 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import LatestProducts from "../../components/LatestProducts/LatestProducts"
 import FollowerWardrobe from "../../components/FollowerWardrobe/FollowerWardrobe";
-import StickyButton from "../../components/StickyButton/StickyButton";
 import { LanguageContext } from "../../context/lang.context" 
 
 function HomePage() {

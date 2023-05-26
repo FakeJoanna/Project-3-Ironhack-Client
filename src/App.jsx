@@ -24,7 +24,6 @@ import MenProducts from "./pages/MenProducts/MenProducts";
 
 import FavoriteProducts from "./pages/FavoriteProducts/FavoriteProducts";
 
-import StickyButton from "./components/StickyButton/StickyButton";
 import Chat from "./pages/Chat/Chat"
 
 import MobileNavbarMenu from "./pages/MobileNavbarMenu/MobileNavbarMenu"
@@ -38,7 +37,6 @@ function App() {
     <div className="App">
       <Navbar />
       <UnderNavBar />
-      {/* <StickyButton /> */}
 
       <Routes>
         <Route path="/" element={<HomePage />} />
