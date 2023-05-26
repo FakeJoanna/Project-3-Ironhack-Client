@@ -13,6 +13,8 @@ function Checkout() {
     const { productId } = useParams()
     const [product, setProduct] = useState(null)
 
+    const [isCheckoutByID, setIsCheckoutByID] = useState(null)
+
     //UseEffect to get the product details once the params is not null
     useEffect(() => {
         if(!productId) {
@@ -22,6 +24,7 @@ function Checkout() {
         axios.get(`${API_URL}/api/checkout/${productId}`)
         .then((response) => {
             setProduct(response.data)
+            setIsCheckoutByID(true)
         })
         .catch(err => console.log(err))
 
@@ -71,10 +74,21 @@ function Checkout() {
     function placeOrder() {
         localStorage.setItem("cart", "[]")
         dimmerDivRef.current.classList.add("dimming")
+        orderPlacedDivRef.current.style.justifyContent = "center"
         orderPlacedDivRef.current.classList.add("scaleUp")
-        setTimeout(() => {
-            navigate("/")
-        }, 2000);
+        if(!isCheckoutByID) {
+            setTimeout(() => {
+                navigate("/")
+            }, 2000);
+        }
+    }
+
+    function submitReview() {
+
+    }
+
+    function toHomePage() {
+        navigate("/")
     }
 
     return(
@@ -169,6 +183,17 @@ function Checkout() {
 
             <div ref={orderPlacedDivRef} className="orderPlacedDiv">
                 <p>Your order has been placed!</p>
+                {isCheckoutByID && 
+                <>
+                    <div className="orderPlaceDivider"></div>
+                    <div className="leaveAReviewDiv">
+                        <p>Would you like to leave a review?</p>
+                        <textarea className="reviewTextArea" placeholder="Let the seller know what you think"></textarea>
+                        <button className="submitReviewButton" onClick={submitReview}>Submit review</button>
+                        <button className="skipButton" onClick={toHomePage}>No, thank you</button>
+                    </div>
+                </>
+                } 
             </div>
 
             <div ref={dimmerDivRef} className="dimmerDiv"></div>

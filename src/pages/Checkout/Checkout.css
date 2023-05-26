@@ -166,7 +166,8 @@
     z-index: 10;
     position: fixed;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
     height: 50%;
     width: 50%;
@@ -180,6 +181,61 @@
 
 .scaleUp {
     transform: scale(1);
+}
+
+.orderPlaceDivider {
+    border: 1px solid lightgrey;
+    width: 80%;
+}
+
+.leaveAReviewDiv {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 80%;
+    width: 80%;
+    font-size: 20px;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.leaveAReviewDiv > p {
+    margin: 0;
+}
+
+.leaveAReviewDiv > hr {
+    margin-top: 0;
+}
+
+.reviewTextArea {
+    height: 60%;
+    width: 70%;
+    font-size: 16px;
+    border: 1.8px solid #f5f6f7
+}
+
+.submitReviewButton {
+    color: white;
+    background-color: #2D848A;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    padding: 10px 20px;
+}
+
+.skipButton {
+    position: absolute;
+    top: 90%;
+    left: 90%;
+    width: 100px;
+    font-size: 14px;
+    color: grey;
+    background-color: white;
+    border: none;
+    text-decoration: underline;
 }
 
 @media only screen and (max-width: 768px) {
