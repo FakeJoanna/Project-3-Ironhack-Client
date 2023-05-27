@@ -1,6 +1,6 @@
-# Project3 - Backend
+# Project3 - Frontend
 
-This repository contains the frontend for the third Ironhack project developed by Theo Diamant and Brea. It is a Single Page Application written in the React framework, leveraging its component based architecture to enable a smooth and pleasant user experience, as well as seamless integration with the backend services.
+This repository contains the frontend for the third Ironhack project developed by Theo Diamant and Brea. It is a Single Page Application written in the React framework, leveraging its component based architecture to enable a smooth and pleasant user experience.
 
 ## Features
 
